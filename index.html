@@ -18,50 +18,22 @@
         <span><strong>MICROBEQUEST</strong><small>BOTANICAL PATHOGEN ARCHIVE</small></span>
       </a>
       <div class="topbar-status">FIELD NOTES <span class="topbar-divider">/</span> VOL. 01</div>
-      <a class="topbar-link" href="#field-guide">OPEN THE FIELD GUIDE</a>
+      <button class="topbar-link tour-link" id="take-tour" type="button">TAKE A TOUR</button>
     </header>
 
     <main id="main">
       <section class="hero">
-        <svg class="hero-botanical-plate" viewBox="0 0 300 320" role="img" aria-label="Decorative botanical specimen illustration of curling vines, leaves and a butterfly" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M270 310 C226 267 252 225 208 190 S160 123 188 84 S212 39 186 12"/>
-              <path d="M237 275 C197 267 185 242 191 218 C219 225 235 245 237 275Z"/>
-              <path d="M228 266 C217 251 205 238 191 218"/>
-              <path d="M216 199 C249 187 258 162 248 142 C223 154 212 174 216 199Z"/>
-              <path d="M216 195 L248 142"/>
-              <path d="M190 139 C155 139 140 118 146 94 C173 102 188 118 190 139Z"/>
-              <path d="M187 133 L146 94"/>
-              <path d="M192 82 C218 74 231 53 221 35 C200 47 190 63 192 82Z"/>
-              <path d="M192 79 L221 35"/>
-              <path d="M265 309 C281 283 283 259 270 244"/>
-              <path d="M270 244 C250 246 239 259 241 276 C258 273 267 260 270 244Z"/>
-              <path d="M164 312 C127 286 111 252 124 225 C141 196 126 174 106 159"/>
-              <path d="M124 225 C94 222 78 202 82 181 C109 190 123 205 124 225Z"/>
-              <path d="M123 222 L82 181"/>
-              <path d="M113 173 C83 175 64 158 65 137 C91 145 107 158 113 173Z"/>
-              <path d="M108 169 L65 137"/>
-              <path d="M166 312 C190 296 202 283 205 266"/>
-              <path d="M205 266 C181 263 167 274 166 291 C185 291 199 281 205 266Z"/>
-              <path d="M48 67 C60 54 76 54 84 67 C75 81 63 86 48 67Z"/>
-              <path d="M84 67 C97 54 113 56 119 69 C108 82 96 86 84 67Z"/>
-              <path d="M84 67 C80 77 79 85 84 94 C89 85 88 77 84 67Z"/>
-              <path d="M83 66 L75 50 M87 66 L96 49"/>
-              <path d="M84 94 L84 103"/>
-              <path d="M41 116 C49 103 66 103 74 116 C65 130 53 135 41 116Z"/>
-              <path d="M74 116 C87 103 104 105 110 118 C99 131 87 135 74 116Z"/>
-              <path d="M74 116 C70 126 69 134 74 143 C79 134 78 126 74 116Z"/>
-            </g>
-          </svg>
-          <div class="hero-copy">
+    </svg>
+          <div class="hero-copy" id="hero-intro">
           <p class="eyebrow">THE BOTANICAL PATHOGEN ARCHIVE · VOL. I</p>
           <h1>MICROBEQUEST:<br><span>THE OUTBREAK FILES.</span></h1>
           <p class="hero-description">A natural-history archive of real outbreaks. Examine source-linked evidence, identify pathogens, trace epidemiological clues, and distinguish published findings from interpretation.</p>
           <div class="hero-actions">
-            <button class="button button-primary" id="start-investigation">OPEN CASE 001</button>
+            <button class="button button-primary" id="start-investigation">BEGIN INVESTIGATION</button>
             <a class="button button-secondary" href="#field-guide">BROWSE THE FIELD GUIDE</a>
           </div>
           <div class="hero-footnote">FIELD RULE: distinguish published findings from interpretation.</div>
+          <p class="tour-prompt">FIRST VISIT? <button class="inline-tour-link" id="hero-tour" type="button">TAKE THE SHORT TOUR ↗</button></p>
         </div>
       </section>
 
@@ -73,9 +45,9 @@
         <div><span class="strip-number">03</span><span><strong>EXPLAIN</strong><small>Defend your conclusion</small></span></div>
       </section>
 
-      <section class="case-section" id="case-files">
+      <section class="case-section" id="case-files" aria-labelledby="case-files-title">
         <div class="section-heading">
-          <div><p class="eyebrow">THE HISTORICAL CASEBOOK</p><h2>REAL OUTBREAKS, REAL EVIDENCE<span class="heading-period">.</span></h2></div>
+          <div><p class="eyebrow">THE HISTORICAL CASEBOOK</p><h2 id="case-files-title">REAL OUTBREAKS, REAL EVIDENCE<span class="heading-period">.</span></h2></div>
           <p class="section-aside">Documented events.<br>Source-linked investigations.</p>
         </div>
         <p class="archive-intro">Every case begins with a published public-health investigation. The interactive questions are original teaching activities, and simplified evidence is labelled as such. Open the source record to check the original findings.</p>
@@ -163,9 +135,10 @@
     <footer class="site-footer">
       <section class="credits-panel" aria-labelledby="credits-heading">
         <div class="credits-heading">
-          <p class="eyebrow">ARCHIVE COLOPHON / RESEARCHER RECORD</p>
-          <h2 id="credits-heading">The student behind the specimens.</h2>
-          <p>Compiled as a student-led microbiology learning archive.</p>
+          <p class="eyebrow">PROJECT COLOPHON / RESEARCHER RECORD</p>
+          <h2 id="credits-heading">About This Project</h2>
+          <p>MicrobeQuest: The Outbreak Files is an academic assignment and a personal passion project exploring agentic AI coding, interactive scientific storytelling, and microbiology education. It combines real-world outbreak research with evidence-based investigative gameplay.</p>
+          <nav class="project-source-links" aria-label="Project references"><a href="https://www.cdc.gov/salmonella/outbreaks/mbandaka-05-01/investigation.html" target="_blank" rel="noreferrer">CDC · Backyard poultry ↗</a><a href="https://www.cdc.gov/salmonella/outbreaks/eggs-06-25/investigation.html" target="_blank" rel="noreferrer">CDC · Egg outbreak ↗</a><a href="https://www.who.int/publications/m/item/multi-country-outbreak-of-cholera--external-situation-report--29--28-august-2025" target="_blank" rel="noreferrer">WHO · Cholera report ↗</a><a href="https://github.com/anubhutigoswami125/MicrobeQuest" target="_blank" rel="noreferrer">Project source code ↗</a></nav>
         </div>
         <div class="credits-details">
           <p class="credits-name">Anubhuti Goswami</p>
@@ -181,6 +154,14 @@
         <span class="credits-seal" aria-hidden="true">FIELD<br>ARCHIVE<br><b>2026</b></span>
       </section><a class="brand footer-brand" href="index.html"><span class="brand-mark">M.</span><span><strong>MICROBEQUEST</strong><small>BOTANICAL PATHOGEN ARCHIVE</small></span></a><p>A student-built field journal for evidence-led microbiology learning.</p><nav class="footer-links" aria-label="Legal and project links"><a href="privacy.html">PRIVACY POLICY</a><a href="terms.html">TERMS &amp; CONDITIONS</a><a href="https://github.com/anubhutigoswami125/MicrobeQuest" target="_blank" rel="noreferrer">SOURCE REPOSITORY</a></nav></footer>
   </div>
+  <section class="tour-guide" id="tour-guide" role="region" aria-label="Website tour guide" aria-live="polite" hidden>
+    <div class="tour-guide-top"><span class="tour-kicker">FIELD GUIDE / ORIENTATION</span><button type="button" class="tour-close" id="tour-close" aria-label="Close tour">×</button></div>
+    <p class="tour-count" id="tour-count">STEP 1 OF 7</p>
+    <h2 id="tour-title">Welcome to MicrobeQuest</h2>
+    <p id="tour-copy">Explore documented outbreaks through source-based evidence and scientific reasoning.</p>
+    <div class="tour-progress" aria-hidden="true"><span id="tour-progress-bar"></span></div>
+    <div class="tour-controls"><button type="button" class="tour-control tour-back" id="tour-back">BACK</button><button type="button" class="tour-skip" id="tour-skip">SKIP TOUR</button><button type="button" class="tour-control tour-next" id="tour-next">NEXT →</button></div>
+  </section>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
