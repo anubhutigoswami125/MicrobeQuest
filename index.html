@@ -194,5 +194,52 @@
     <div class="tour-controls"><button type="button" class="tour-control tour-back" id="tour-back">BACK</button><button type="button" class="tour-skip" id="tour-skip">SKIP TOUR</button><button type="button" class="tour-control tour-next" id="tour-next">NEXT →</button></div>
   </section>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+window.addEventListener("DOMContentLoaded", function(){
+  (function(){
+    const panel=document.getElementById("tour-guide");
+    if(!panel || panel.dataset.robustTour==="ready") return;
+    panel.dataset.robustTour="ready";
+    document.body.appendChild(panel);
+    const ids=["take-tour","hero-tour","tour-next","tour-back","tour-skip","tour-close"];
+    ids.forEach(function(id){const old=document.getElementById(id);if(old){const fresh=old.cloneNode(true);old.replaceWith(fresh);}});
+    const byId=id=>document.getElementById(id);
+    const steps=[
+      {target:"#hero-intro",title:"Welcome to MicrobeQuest",copy:"Explore real outbreak reports through an interactive, source-based microbiology archive. The case questions are learning activities; follow the primary sources to verify claims."},
+      {target:"#specimen-wall",title:"Inspect the specimen cabinet",copy:"Click the microbial photographs to enlarge them, read context, and open their original image records. Shape is a clue—not proof of identity."},
+      {target:"#case-files",title:"Choose an archive file",copy:"Each case card is interactive. Open a file to inspect its briefing, review the evidence, and form a conclusion."},
+      {target:'[data-case-id="poultry"]',title:"Open a case",copy:"Select a case file. You can return to the archive at any time.",action:function(){if(typeof window.openCase==="function")window.openCase("poultry");else byId("start-investigation")?.click();}},
+      {target:"#investigation-content",title:"Read the briefing",copy:"Start with the source context. Ask what investigators reported and what the report can—and cannot—establish.",action:function(){byId("to-evidence")?.click();}},
+      {target:".investigation-desk",title:"Explore the evidence desk",copy:"Open the schematic evidence map, the source clipping, the primary document, and individual pinned clues. These are interactive detail views.",action:function(){if(!document.querySelector(".investigation-desk"))byId("to-evidence")?.click();}},
+      {target:".question-block",title:"Test your interpretation",copy:"Choose the conclusion that best fits the evidence. Read the feedback and check the original source." ,action:function(){byId("to-conclusion")?.click();}},
+      {target:"#score",title:"Score and continue",copy:"A supported conclusion earns points once per case. Review the feedback, then investigate another outbreak."}
+    ];
+    let index=0,target=null;
+    function clear(){if(target){target.classList.remove("tour-target-active");target.removeAttribute("aria-describedby");target=null;}}
+    function render(next){
+      clear();index=Math.max(0,Math.min(next,steps.length-1));
+      const step=steps[index];target=document.querySelector(step.target)||document.querySelector("#main");
+      if(target){target.classList.add("tour-target-active");target.setAttribute("aria-describedby","tour-guide");}
+      panel.hidden=false;
+      panel.style.left="";panel.style.top="";panel.style.right="";panel.style.bottom="";
+      byId("tour-count").textContent="STEP "+(index+1)+" OF "+steps.length;
+      byId("tour-title").textContent=step.title;byId("tour-copy").textContent=step.copy;
+      byId("tour-progress-bar").style.width=((index+1)/steps.length*100)+"%";
+      byId("tour-back").disabled=index===0;byId("tour-next").textContent=index===steps.length-1?"FINISH":"NEXT →";
+      if(target)target.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"});
+    }
+    function end(done){clear();panel.hidden=true;if(done){try{localStorage.setItem("mq-tour-complete","true")}catch(e){}}}
+    function start(){render(0);}
+    byId("take-tour")?.addEventListener("click",start);
+    byId("hero-tour")?.addEventListener("click",start);
+    byId("tour-next")?.addEventListener("click",function(){const step=steps[index];if(step.action)step.action();if(index===steps.length-1){end(true);return;}render(index+1);});
+    byId("tour-back")?.addEventListener("click",function(){if(index>0)render(index-1);});
+    byId("tour-skip")?.addEventListener("click",function(){end(false);});
+    byId("tour-close")?.addEventListener("click",function(){end(false);});
+    document.addEventListener("keydown",function(event){if(panel.hidden)return;if(event.key==="Escape")end(false);if(event.key==="ArrowRight")byId("tour-next")?.click();if(event.key==="ArrowLeft"&&index>0)render(index-1);});
+  })();
+});
+</script>
 </body>
 </html>
