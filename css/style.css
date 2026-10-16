@@ -1299,3 +1299,68 @@ body.modal-open{overflow:hidden}
 .unit-note-footer{margin:18px 0;padding:10px 0;border-top:1px dashed #b6ac91;border-bottom:1px dashed #b6ac91;font:9px var(--mono);color:#7c433a}
 .unit-note-close{position:absolute;right:10px;top:10px;width:35px;height:35px;border:1px solid #6b725f;background:#e7dfc8;color:#26352a;font-size:25px;cursor:pointer}
 .unit-note-return{width:100%}
+
+
+/* 2.0 visual pass — maximalist scrapbook/cybercore, with the existing footer preserved */
+:root{--ink:#30203d;--muted:#687568;--pink:#f2a9d8;--hot:#e84eb4;--lav:#d9c7f2;--blue:#c9e3f2;--cream:#fff9ef;--line:#d9bdd7;--lime:#d8f28d;--archive-forest:#394e3b;--archive-moss:#7b8d62;--archive-burgundy:#8b3f55;--archive-gold:#b99a54;--archive-ink:#302d27}
+body{font-size:16px;background-color:#f7f0e8;background-image:radial-gradient(#c9a8d0 0.8px,transparent .8px),linear-gradient(135deg,#fff4f9 0%,#f2f0ff 48%,#edf7fb 100%);background-size:13px 13px,100% 100%}
+.desktop-shell{background:#fff9f3;border-color:#d9bdd7}
+.topbar{background:#fff8fc}
+.topbar-link,.topbar-status,.brand strong{font-size:11px}
+.brand small{font-size:10px}
+.hero{background:linear-gradient(125deg,#fff8ee 0%,#f9e1f0 43%,#e6e0fb 74%,#d8edf5 100%);border-bottom:2px solid var(--ink)}
+.hero:before{border-color:#d96bb0}
+.hero h1{letter-spacing:-3px}
+.hero-description,.archive-intro,.section-aside,.case-card-main>p,.briefing-card p,.evidence-item p,.science-note p{font-size:17px;line-height:1.7}
+.eyebrow{font-size:11px}
+.button{font-size:11px;min-height:50px}
+.case-section,.field-guide-section{background-color:#fff9f3}
+.case-card,.case-card-archive{background:#fff8e9;border-color:#3a2d45;box-shadow:4px 4px 0 #e7c4df}
+.case-card:nth-child(3n+2){background:#f5efff}.case-card:nth-child(3n){background:#edf7fa}
+.case-card-index{background:#f5d8ed}
+.case-tags span,.evidence-tag{font-size:10px}
+.case-card-main h3,.briefing-card h3,.evidence-item h3{font-size:21px}
+.case-meta,.case-progress,.case-seal,.case-card-index span{font-size:10px}
+.specimen-wall{background:#30213e;border-color:#b28bd0;box-shadow:9px 10px 0 #e6c1df,inset 0 0 0 7px #473151}
+.specimen-wall:before{border-color:#d6b7ee}
+.specimen-wall-heading{color:#f5d8f0;border-color:#886b91;font-size:10px}
+.specimen-note{font-size:10px;box-shadow:3px 4px 0 #160f21}
+.specimen-note b{font-size:11px}
+.specimen-attribution{font-size:9px}
+.photo-label{font-size:9px}
+.specimen-modal-card{background:#fff8ee;border-color:#bd8bd0;box-shadow:10px 12px 0 #1e1529}
+.specimen-modal-copy p{font-size:17px}
+.specimen-modal-copy a{font-size:10px}
+.tour-guide{position:fixed;left:auto!important;right:20px!important;top:auto!important;bottom:20px!important;width:min(390px,calc(100vw - 28px));max-height:min(70vh,520px);background:#fff8ee;border:2px solid #5b426c;border-radius:0;box-shadow:7px 7px 0 #e9a9d2,0 14px 35px #26142b40;padding:20px}
+.tour-kicker,.tour-count{font-size:10px}
+.tour-guide h2{font-size:28px}
+.tour-guide>p:not(.tour-count){font-size:15px;line-height:1.65}
+.tour-control,.tour-skip{font-size:10px;padding:10px 12px}
+.tour-target-active{outline:3px solid #e84eb4!important;outline-offset:5px!important;box-shadow:0 0 0 8px #e84eb42b!important}
+.investigation-desk{margin:30px 0;padding:18px;background:#f8eaf4;border:2px solid #4b3859;box-shadow:5px 5px 0 #d7b4df}
+.desk-heading h3{font:600 30px/1.05 "Cormorant Garamond",Georgia,serif;margin:0 0 8px;color:#493354}
+.desk-heading>p:last-child{font-size:15px;color:#6a5a6d}
+.desk-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:18px}
+.desk-artifact{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:9px;min-width:0;min-height:205px;padding:15px;text-align:left;color:#34283c;border:1px solid #6a4b73;box-shadow:3px 4px 0 #d4b3d9;cursor:pointer;transition:transform .16s,box-shadow .16s}
+.desk-artifact:hover,.desk-artifact:focus-visible{transform:translate(-2px,-2px) rotate(-.3deg);box-shadow:6px 7px 0 #d4b3d9}
+.desk-artifact:focus-visible{outline:3px solid #e84eb4;outline-offset:3px}
+.desk-map{background:#edf3df}.desk-clipping{background:#fff8df;transform:rotate(.5deg)}.desk-document{background:#e9e4fb}.desk-evidence{background:#fffaf0;min-height:165px}
+.artifact-pin{position:absolute;right:12px;top:8px;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#e84eb4;color:white;font:10px var(--mono);box-shadow:1px 2px 0 #493354}
+.artifact-label,.artifact-caption{font:10px var(--mono);letter-spacing:.6px}
+.desk-map svg{width:100%;height:auto;max-height:140px;background:#fff9e8;border:1px dashed #b8ad8d}
+.artifact-caption{margin-top:auto;color:#7e3f6b;text-decoration:underline;text-underline-offset:3px}
+.clipping-masthead{width:100%;border-bottom:3px double #44344c;padding-bottom:7px;font:11px Georgia,serif;font-weight:bold;letter-spacing:1px}
+.clipping-masthead small{display:block;margin-top:4px;font:8px var(--mono);letter-spacing:.6px}
+.clipping-headline{font:700 26px/.98 Georgia,serif;text-transform:uppercase}
+.clipping-rule{width:100%;border-top:1px solid #44344c}
+.clipping-copy{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;font:13px/1.4 Georgia,serif}
+.document-icon{display:grid;place-items:center;width:46px;height:54px;border:1px solid #8d7ab1;background:#fffaff;color:#765d99;font:11px var(--mono);box-shadow:3px 3px 0 #c8b7e8}
+.desk-document strong,.desk-evidence strong{font:600 21px/1.1 "Cormorant Garamond",Georgia,serif}
+.desk-evidence>span:nth-of-type(2){font:15px/1.5 "Cormorant Garamond",Georgia,serif;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.document-lines{width:100%;height:35px;background:repeating-linear-gradient(to bottom,transparent 0 7px,#c2b3dc 7px 8px)}
+.site-footer{font-size:15px}
+.credits-heading>p:not(.eyebrow){font-size:16px;line-height:1.7}
+.credits-details dt,.credits-details dd,.project-source-links a,.footer-links a{font-size:11px}
+.credits-name{font-size:25px}
+.tour-target-active.specimen-wall,.tour-target-active.case-card,.tour-target-active.unit-card{outline-color:#e84eb4!important;box-shadow:0 0 0 8px #e84eb42b!important}
+@media(max-width:620px){.desk-grid{grid-template-columns:1fr}.desk-artifact{min-height:170px}.tour-guide{right:14px!important;bottom:14px!important}.hero-description,.archive-intro,.section-aside,.case-card-main>p,.briefing-card p,.evidence-item p,.science-note p{font-size:16px}}
