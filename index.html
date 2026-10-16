@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f0e4">
-  <meta name="description" content="A botanical field notebook for interactive microbiology investigations, evidence review, and scientific reasoning.">
-  <title>MicrobeQuest | A Botanical Microbiology Field Journal</title>
+  <meta name="theme-color" content="#263e2e">
+  <meta name="description" content="MicrobeQuest: The Outbreak Files — a botanical pathogen archive for source-based microbiology investigations.">
+  <title>MicrobeQuest: The Outbreak Files | Botanical Pathogen Archive</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/app.js" defer></script>
 </head>
@@ -15,7 +15,7 @@
     <header class="topbar">
       <a class="brand" href="index.html" aria-label="MicrobeQuest home">
         <span class="brand-mark" aria-hidden="true">M.</span>
-        <span><strong>MICROBEQUEST</strong><small>BOTANICAL FIELD JOURNAL</small></span>
+        <span><strong>MICROBEQUEST</strong><small>BOTANICAL PATHOGEN ARCHIVE</small></span>
       </a>
       <div class="topbar-status">FIELD NOTES <span class="topbar-divider">/</span> VOL. 01</div>
       <a class="topbar-link" href="#field-guide">OPEN THE FIELD GUIDE</a>
@@ -23,10 +23,40 @@
 
     <main id="main">
       <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">THE NATURALIST’S MICROBIOLOGY JOURNAL</p>
-          <h1>THE LIVING<br><span>FIELD JOURNAL.</span></h1>
-          <p class="hero-description">Enter documented outbreak investigations through a naturalist’s field journal. Examine public-health evidence, follow the source records, and decide what the findings can and cannot tell us.</p>
+        <svg class="hero-botanical-plate" viewBox="0 0 300 320" role="img" aria-label="Decorative botanical specimen illustration of curling vines, leaves and a butterfly" xmlns="http://www.w3.org/2000/svg">
+            <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M270 310 C226 267 252 225 208 190 S160 123 188 84 S212 39 186 12"/>
+              <path d="M237 275 C197 267 185 242 191 218 C219 225 235 245 237 275Z"/>
+              <path d="M228 266 C217 251 205 238 191 218"/>
+              <path d="M216 199 C249 187 258 162 248 142 C223 154 212 174 216 199Z"/>
+              <path d="M216 195 L248 142"/>
+              <path d="M190 139 C155 139 140 118 146 94 C173 102 188 118 190 139Z"/>
+              <path d="M187 133 L146 94"/>
+              <path d="M192 82 C218 74 231 53 221 35 C200 47 190 63 192 82Z"/>
+              <path d="M192 79 L221 35"/>
+              <path d="M265 309 C281 283 283 259 270 244"/>
+              <path d="M270 244 C250 246 239 259 241 276 C258 273 267 260 270 244Z"/>
+              <path d="M164 312 C127 286 111 252 124 225 C141 196 126 174 106 159"/>
+              <path d="M124 225 C94 222 78 202 82 181 C109 190 123 205 124 225Z"/>
+              <path d="M123 222 L82 181"/>
+              <path d="M113 173 C83 175 64 158 65 137 C91 145 107 158 113 173Z"/>
+              <path d="M108 169 L65 137"/>
+              <path d="M166 312 C190 296 202 283 205 266"/>
+              <path d="M205 266 C181 263 167 274 166 291 C185 291 199 281 205 266Z"/>
+              <path d="M48 67 C60 54 76 54 84 67 C75 81 63 86 48 67Z"/>
+              <path d="M84 67 C97 54 113 56 119 69 C108 82 96 86 84 67Z"/>
+              <path d="M84 67 C80 77 79 85 84 94 C89 85 88 77 84 67Z"/>
+              <path d="M83 66 L75 50 M87 66 L96 49"/>
+              <path d="M84 94 L84 103"/>
+              <path d="M41 116 C49 103 66 103 74 116 C65 130 53 135 41 116Z"/>
+              <path d="M74 116 C87 103 104 105 110 118 C99 131 87 135 74 116Z"/>
+              <path d="M74 116 C70 126 69 134 74 143 C79 134 78 126 74 116Z"/>
+            </g>
+          </svg>
+          <div class="hero-copy">
+          <p class="eyebrow">THE BOTANICAL PATHOGEN ARCHIVE · VOL. I</p>
+          <h1>MICROBEQUEST:<br><span>THE OUTBREAK FILES.</span></h1>
+          <p class="hero-description">A natural-history archive of real outbreaks. Examine source-linked evidence, identify pathogens, trace epidemiological clues, and distinguish published findings from interpretation.</p>
           <div class="hero-actions">
             <button class="button button-primary" id="start-investigation">OPEN CASE 001</button>
             <a class="button button-secondary" href="#field-guide">BROWSE THE FIELD GUIDE</a>
@@ -51,7 +81,7 @@
         <p class="archive-intro">Every case begins with a published public-health investigation. The interactive questions are original teaching activities, and simplified evidence is labelled as such. Open the source record to check the original findings.</p>
         <div class="case-archive-grid">
           <article class="case-card case-card-archive">
-            <div class="case-card-index"><span>CASE</span><strong>001</strong><span class="case-stamp">2025</span></div>
+            <div class="case-card-index"><span>ARCHIVE FILE</span><strong>001</strong><span class="case-stamp">2025</span></div>
             <div class="case-card-main">
               <div class="case-tags"><span>SALMONELLA</span><span>ZOONOSES</span><span>CDC REPORT</span></div>
               <h3>The Backyard Poultry Investigation</h3>
@@ -62,7 +92,7 @@
             <div class="case-card-action"><div class="case-seal">FIELD<br><small>001</small></div><button class="button button-primary" data-case-id="poultry">OPEN CASE</button><small class="case-progress" data-case-progress="poultry">NOT STARTED</small></div>
           </article>
           <article class="case-card case-card-archive">
-            <div class="case-card-index"><span>CASE</span><strong>002</strong><span class="case-stamp">2025</span></div>
+            <div class="case-card-index"><span>ARCHIVE FILE</span><strong>002</strong><span class="case-stamp">2025</span></div>
             <div class="case-card-main">
               <div class="case-tags"><span>S. ENTERITIDIS</span><span>FOOD SAFETY</span><span>CDC REPORT</span></div>
               <h3>The Contaminated Egg Trail</h3>
@@ -73,7 +103,7 @@
             <div class="case-card-action"><div class="case-seal">FIELD<br><small>002</small></div><button class="button button-primary" data-case-id="eggs">OPEN CASE</button><small class="case-progress" data-case-progress="eggs">NOT STARTED</small></div>
           </article>
           <article class="case-card case-card-archive">
-            <div class="case-card-index"><span>CASE</span><strong>003</strong><span class="case-stamp">2025</span></div>
+            <div class="case-card-index"><span>ARCHIVE FILE</span><strong>003</strong><span class="case-stamp">2025</span></div>
             <div class="case-card-main">
               <div class="case-tags"><span>CHOLERA</span><span>SURVEILLANCE</span><span>WHO REPORT</span></div>
               <h3>The Cholera Surveillance Ledger</h3>
@@ -149,7 +179,7 @@
           </dl>
         </div>
         <span class="credits-seal" aria-hidden="true">FIELD<br>ARCHIVE<br><b>2026</b></span>
-      </section><a class="brand footer-brand" href="index.html"><span class="brand-mark">M.</span><span><strong>MICROBEQUEST</strong><small>BOTANICAL FIELD JOURNAL</small></span></a><p>A student-built field journal for evidence-led microbiology learning.</p><nav class="footer-links" aria-label="Legal and project links"><a href="privacy.html">PRIVACY POLICY</a><a href="terms.html">TERMS &amp; CONDITIONS</a><a href="https://github.com/anubhutigoswami125/MicrobeQuest" target="_blank" rel="noreferrer">SOURCE REPOSITORY</a></nav></footer>
+      </section><a class="brand footer-brand" href="index.html"><span class="brand-mark">M.</span><span><strong>MICROBEQUEST</strong><small>BOTANICAL PATHOGEN ARCHIVE</small></span></a><p>A student-built field journal for evidence-led microbiology learning.</p><nav class="footer-links" aria-label="Legal and project links"><a href="privacy.html">PRIVACY POLICY</a><a href="terms.html">TERMS &amp; CONDITIONS</a><a href="https://github.com/anubhutigoswami125/MicrobeQuest" target="_blank" rel="noreferrer">SOURCE REPOSITORY</a></nav></footer>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
