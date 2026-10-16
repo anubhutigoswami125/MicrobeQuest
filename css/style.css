@@ -49,3 +49,10 @@ a,button,[role="button"],.answer-option{cursor:url("data:image/svg+xml,%3Csvg xm
 .legal-page a{color:#8f514d;text-decoration-thickness:1px;text-underline-offset:3px}
 .legal-note{padding:15px 18px;background:#e7e8d9;border-left:3px solid #8f514d}
 @media(max-width:620px){.legal-page p{font-size:18px}.legal-page h2{font-size:24px}}
+
+/* Specimen is a visible point-and-click target, not a cursor animation. */
+.microbe{display:block;width:11px;height:11px;border:1px solid #53694e;border-radius:50%;background:currentColor;box-shadow:2px 2px 0 #fff9;font-size:0;animation:none}
+.microbe-b,.microbe-d{width:8px;height:8px}.microbe-c,.microbe-g{width:13px;height:13px}.microbe-e,.microbe-f{width:6px;height:6px}
+.specimen-hotspot{position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%);padding:8px 10px;background:#f8f5ec;border:1px solid #53694e;color:#344234;font:9px "DM Mono",monospace;letter-spacing:.5px;cursor:inherit}
+.specimen-hotspot:hover,.specimen-hotspot:focus-visible{background:#e7e8d9;outline:2px solid #8f514d;outline-offset:2px}
+.kicker-icon{font:9px "DM Mono",monospace;letter-spacing:.5px;margin-right:8px}
