@@ -155,8 +155,37 @@ function renderEvidence() {
       ${current.evidence.map(item => `<article class="evidence-item"><span class="evidence-tag">${item.tag}</span><h3>${item.title}</h3><p>${item.detail}</p></article>`).join("")}
     </div>
     <div class="science-note"><span class="note-icon">i</span><p><strong>PRIMARY SOURCE</strong><br><a href="${current.sourceUrl}" target="_blank" rel="noreferrer">${current.sourceName}</a><br>Distinguish a published finding from your own interpretation.</p></div>
+    <section class="investigation-desk" aria-labelledby="desk-title">
+      <div class="desk-heading"><p class="eyebrow">INTERACTIVE EVIDENCE TABLE / CASE ${current.number}</p><h3 id="desk-title">Open the evidence. Follow the trail.</h3><p>Every item opens a detail view. The connection map is schematic, not a geographic claim.</p></div>
+      <div class="desk-grid">
+        <button class="desk-artifact desk-map" type="button" data-artifact="map">
+          <span class="artifact-pin">01</span><span class="artifact-label">CONNECTION MAP</span>
+          <svg viewBox="0 0 300 150" role="img" aria-label="Schematic map connecting exposure reports, laboratory evidence and traceback">
+            <path d="M24 35 C55 13 75 38 103 25 S148 41 165 26 S215 30 238 45 L273 37 L281 78 L252 96 L224 90 L208 121 L180 112 L162 136 L133 111 L105 122 L85 90 L56 88 L44 65 Z" fill="#d9e0cf" stroke="#556b50" stroke-width="2"/>
+            <path d="M60 56 Q112 32 153 70 T239 66" fill="none" stroke="#a64d75" stroke-width="3" stroke-dasharray="5 5"/>
+            <circle cx="60" cy="56" r="7" fill="#e35b9b" stroke="#fff4de" stroke-width="2"/><circle cx="153" cy="70" r="7" fill="#7766b4" stroke="#fff4de" stroke-width="2"/><circle cx="239" cy="66" r="7" fill="#bd8c36" stroke="#fff4de" stroke-width="2"/>
+            <text x="17" y="18" font-size="9" fill="#3c4938">EXPOSURE</text><text x="115" y="53" font-size="9" fill="#3c4938">LAB</text><text x="211" y="28" font-size="9" fill="#3c4938">TRACEBACK</text>
+          </svg>
+          <span class="artifact-caption">A visual guide to how evidence streams connect ↗</span>
+        </button>
+        <button class="desk-artifact desk-clipping" type="button" data-artifact="clipping">
+          <span class="clipping-masthead">THE FIELD DISPATCH <small>PUBLIC HEALTH / ARCHIVE EDITION</small></span>
+          <span class="clipping-headline">${current.title}</span>
+          <span class="clipping-rule"></span>
+          <span class="clipping-copy">${current.sourceNote}</span>
+          <span class="artifact-caption">READ THE CLIPPING ↗</span>
+        </button>
+        <button class="desk-artifact desk-document" type="button" data-artifact="source">
+          <span class="document-icon">DOC</span><span class="artifact-label">PRIMARY SOURCE</span>
+          <strong>${current.sourceName}</strong><span class="document-lines"></span><span class="artifact-caption">Open the source record ↗</span>
+        </button>
+        ${current.evidence.map((item,i)=>`<button class="desk-artifact desk-evidence" type="button" data-evidence-index="${i}"><span class="artifact-label">PINNED EVIDENCE / ${String.fromCharCode(65+i)}</span><strong>${item.title}</strong><span>${item.detail}</span><span class="artifact-caption">INSPECT CLUE ↗</span></button>`).join("")}
+      </div>
+    </section>
     <div class="content-footer"><span>PHASE 02 / 03</span><button class="button button-primary" id="to-conclusion">FORM A CONCLUSION</button></div>`;
   $("#to-conclusion").addEventListener("click", renderQuestion);
+  $("[data-artifact]", content).forEach(button => button.addEventListener("click", () => openDeskArtifact(button.dataset.artifact)));
+  $("[data-evidence-index]", content).forEach(button => button.addEventListener("click", () => openDeskEvidence(Number(button.dataset.evidenceIndex))));
   updateProtocol(1);
   content.focus({ preventScroll: true });
 }
@@ -321,7 +350,7 @@ function openSpecimen(id){
   $(".specimen-modal-close",specimenModal).focus();
 }
 function closeSpecimen(){
-  specimenModal.hidden=true;document.body.classList.remove("modal-open");
+  specimenModal.hidden=true;document.body.classList.remove("modal-open");const modalImage=$("#specimen-modal-image");if(modalImage)modalImage.hidden=false;
   if(specimenReturnFocus&&typeof specimenReturnFocus.focus==="function")specimenReturnFocus.focus();
 }
 $$("[data-specimen]").forEach(button=>button.addEventListener("click",()=>openSpecimen(button.dataset.specimen)));
@@ -359,3 +388,47 @@ function openUnitNote(index){
   panel.addEventListener("keydown",event=>{if(event.key==="Escape")close();});
 }
 $$(".unit-card").forEach((card,index)=>makeCardInteractive(card,()=>openUnitNote(index),"Open "+($("h3",card)?.textContent||"unit")+" field note"));
+
+
+function openDeskArtifact(kind){
+  const current=activeCase();
+  const modal=$("#specimen-modal");
+  const image=$("#specimen-modal-image");
+  let title="",description="",credit="",source=current.sourceUrl;
+  if(kind==="map"){
+    title="Evidence connection map";
+    description="This is a schematic reasoning map, not a geographic map. Public-health investigations compare exposure histories, laboratory findings, and traceback or source information. The strength of a conclusion comes from how independent evidence streams agree—and from recognising their limits.";
+    credit="READING RULE: a line between evidence types represents an investigative relationship, not proof by itself.";
+  }else if(kind==="clipping"){
+    title=current.title+" — field dispatch";
+    description=current.sourceNote+" This visual clipping is an original interface treatment, not a reproduction of a newspaper article. The linked public-health report is the primary record.";
+    credit="ARCHIVE NOTE: the clipping summarises the source note shown in this case file.";
+  }else{
+    title=current.sourceName;
+    description="Open the original public-health record to inspect its methods, case definitions, dates, and limitations. Compare the report's wording with the summaries in this learning activity.";
+    credit="SOURCE DOCUMENT · External website opens in a new tab.";
+  }
+  image.hidden=true;image.removeAttribute("src");
+  $("#specimen-modal-kicker").textContent="CASE "+current.number+" / INTERACTIVE EVIDENCE";
+  $("#specimen-modal-title").textContent=title;
+  $("#specimen-modal-description").textContent=description;
+  $("#specimen-modal-credit").textContent=credit;
+  $("#specimen-modal-source").href=source;
+  $("#specimen-modal-source").textContent="OPEN ORIGINAL PUBLIC-HEALTH SOURCE ↗";
+  modal.hidden=false;document.body.classList.add("modal-open");
+  $(".specimen-modal-close",modal).focus();
+}
+function openDeskEvidence(index){
+  const current=activeCase(),item=current.evidence[index];
+  if(!item)return;
+  const modal=$("#specimen-modal"),image=$("#specimen-modal-image");
+  image.hidden=true;image.removeAttribute("src");
+  $("#specimen-modal-kicker").textContent="CASE "+current.number+" / EVIDENCE CLUE "+String.fromCharCode(65+index);
+  $("#specimen-modal-title").textContent=item.title;
+  $("#specimen-modal-description").textContent=item.detail;
+  $("#specimen-modal-credit").textContent="INTERPRETATION CHECK: what does this clue establish, and what would require corroboration from another evidence stream?";
+  $("#specimen-modal-source").href=current.sourceUrl;
+  $("#specimen-modal-source").textContent="CHECK THE PRIMARY SOURCE ↗";
+  modal.hidden=false;document.body.classList.add("modal-open");
+  $(".specimen-modal-close",modal).focus();
+}
