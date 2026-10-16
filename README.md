@@ -1,10 +1,10 @@
-# MicrobeQuest: The Outbreak Files
+# MicrobeQuest: The Botanical Outbreak Journal
 
-**A microbiology investigation simulator built around scientific evidence, virtual experiments, and case-based learning.**
+**A Victorian botanical field journal for interactive investigations based on documented microbial outbreaks and public-health reports.**
 
 MicrobeQuest turns microbiology concepts into interactive investigations. Instead of only memorising facts, learners review scientific briefings, inspect evidence, consider limitations, and choose defensible next steps.
 
-> **Project status:** Early prototype. Case 001 is playable; the remaining units are planned and will be developed incrementally.
+> **Project status:** Early prototype. Three outbreak investigations are playable; more cases and unit links will be developed incrementally.
 
 ## Learning approach
 
@@ -16,8 +16,8 @@ Each investigation follows three steps:
 
 ## Current features
 
-- Responsive botanical scrapbook interface with paper textures, specimen labels, muted botanical greens, faded rose, and ink.
-- First investigation on microscopy, Gram staining, controls, and evidence quality.
+- Victorian natural-history design with forest and fern greens, curved paper panels, botanical line art, a butterfly ornament, specimen labels, and source-linked case files.
+- Three source-linked outbreak cases: backyard poultry-associated Salmonella, Salmonella Enteritidis linked to eggs, and WHO cholera surveillance.
 - Feedback explains why an answer is or is not supported.
 - Local progress and score saved in the browser.
 - No account or server required for the current prototype.
@@ -28,7 +28,8 @@ Each investigation follows three steps:
 - [x] Build the first interactive case and evidence review.
 - [ ] Add more decision points and branching evidence.
 - [ ] Add a simulated growth/culture experiment.
-- [ ] Develop cases for all six microbiology units.
+- [x] Add three source-linked outbreak case studies.
+- [ ] Develop more cases across all six microbiology units.
 - [ ] Add a final case report that separates observations, interpretations, and limitations.
 - [ ] Test keyboard navigation, mobile layouts, legal pages, and scientific content.
 - [ ] Review privacy and terms drafts against the final deployed site before launch.
