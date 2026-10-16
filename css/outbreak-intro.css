@@ -1,0 +1,28 @@
+/* Opening comic and guided-tour callout; palette matches the live outbreak archive. */
+.outbreak-intro{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px;background:rgba(25,38,28,.88);backdrop-filter:blur(3px)}
+.outbreak-intro[hidden],.tour-nudge[hidden]{display:none!important}
+.intro-comic{position:relative;width:min(760px,100%);background:#f4e8cf;color:#263e2e;border:4px solid #263e2e;box-shadow:12px 12px 0 #a33e2c,0 0 0 8px #d3b44e;transform:rotate(-.35deg)}
+.intro-comic-header{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;background:#263e2e;color:#f8edcf;font:700 11px/1.3 'DM Mono',monospace;letter-spacing:.1em}
+.intro-panel{position:relative;min-height:300px;padding:clamp(26px,6vw,54px);border-bottom:3px dashed #bca77d;overflow:hidden}
+.intro-panel[hidden]{display:none}
+.intro-panel:before{content:"";position:absolute;inset:14px;border:1px solid #bca77d;pointer-events:none}
+.intro-eyebrow{position:relative;margin:0 0 16px;color:#a33e2c;font:700 11px/1.4 'DM Mono',monospace;letter-spacing:.13em}
+.intro-panel h2{position:relative;max-width:560px;margin:0 0 18px;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(34px,7vw,60px);line-height:.98;text-transform:uppercase;letter-spacing:-.035em}
+.intro-panel p:not(.intro-eyebrow){position:relative;max-width:490px;margin:0;font-size:clamp(15px,2.3vw,19px);line-height:1.65}
+.comic-stamp{position:absolute;right:clamp(20px,5vw,48px);bottom:24px;display:grid;place-items:center;width:88px;height:88px;border:3px solid #a33e2c;border-radius:50%;color:#a33e2c;text-align:center;font:900 13px/1.05 'DM Mono',monospace;transform:rotate(11deg)}
+.intro-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;background:#e7d7b7}
+.intro-step{font:700 11px 'DM Mono',monospace;letter-spacing:.08em}
+.intro-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.intro-actions button,.tour-nudge button{border:2px solid #263e2e;padding:10px 13px;background:#263e2e;color:#fff2d5;font:700 11px 'DM Mono',monospace;letter-spacing:.04em;cursor:pointer}
+.intro-actions #intro-skip{background:transparent;color:#263e2e}
+.intro-actions button:focus-visible,.tour-nudge button:focus-visible{outline:3px solid #a33e2c;outline-offset:3px}
+.tour-nudge{position:fixed;z-index:9998;top:88px;right:clamp(12px,4vw,52px);width:min(310px,calc(100vw - 24px));padding:18px 18px 16px;background:#f4e8cf;border:3px solid #263e2e;box-shadow:7px 7px 0 #a33e2c;color:#263e2e}
+.tour-nudge p{margin:0 18px 14px 0;font-size:14px;line-height:1.5}
+.tour-nudge p strong{font:700 11px 'DM Mono',monospace;letter-spacing:.06em}
+.tour-nudge-arrow{position:absolute;right:26px;top:-45px;color:#f3d15b;font-size:42px;font-weight:900;text-shadow:2px 2px #263e2e}
+.tour-nudge-dismiss{position:absolute;right:5px;top:4px!important;padding:2px 7px!important;background:transparent!important;color:#263e2e!important;border:0!important;font-size:20px!important}
+.tour-nudge-start{width:100%}
+#take-tour.outbreak-tour-highlight{position:relative;z-index:9997;outline:5px solid #f3d15b;outline-offset:6px;box-shadow:0 0 0 12px rgba(243,209,91,.24);animation:outbreak-tour-pulse 1.3s ease-in-out infinite}
+@keyframes outbreak-tour-pulse{0%,100%{outline-offset:5px}50%{outline-offset:10px}}
+@media(max-width:520px){.intro-panel{min-height:330px;padding:32px 24px 118px}.comic-stamp{width:70px;height:70px;right:24px;bottom:24px;font-size:11px}.intro-footer{align-items:flex-start;flex-direction:column}.intro-actions{width:100%;justify-content:stretch}.intro-actions button{flex:1}.tour-nudge{top:82px;right:12px}}
+@media(prefers-reduced-motion:reduce){#take-tour.outbreak-tour-highlight{animation:none}}
