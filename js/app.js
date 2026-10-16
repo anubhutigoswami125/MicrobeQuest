@@ -134,6 +134,7 @@ function updateProtocol(activeIndex) {
   });
 }
 $("#start-investigation").addEventListener("click", openCase);
+$("#specimen-hotspot").addEventListener("click", openCase);
 $("#open-case").addEventListener("click", openCase);
 $("#close-case").addEventListener("click", closeCase);
 $("#to-evidence").addEventListener("click", renderEvidence);
