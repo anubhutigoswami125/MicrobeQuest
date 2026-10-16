@@ -1,4 +1,4 @@
-# MicrobeQuest — The Outbreak Files
+# MicrobeQuest: The Outbreak Files
 
 **A microbiology investigation simulator built around scientific evidence, virtual experiments, and case-based learning.**
 
@@ -10,9 +10,9 @@ MicrobeQuest turns microbiology concepts into interactive investigations. Instea
 
 Each investigation follows three steps:
 
-1. **Learn** — review a concise, syllabus-linked science briefing.
-2. **Investigate** — interpret observations and evaluate the reliability of evidence.
-3. **Explain** — make a decision and receive feedback about the scientific reasoning.
+1. **Learn:** review a concise, syllabus-linked science briefing.
+2. **Investigate:** interpret observations and evaluate the reliability of evidence.
+3. **Explain:** make a decision and receive feedback about the scientific reasoning.
 
 ## Current features
 
