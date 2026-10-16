@@ -16,7 +16,7 @@ Each investigation follows three steps:
 
 ## Current features
 
-- Responsive, retro pixel-inspired interface with a pink, purple, and blue palette.
+- Responsive botanical scrapbook interface with paper textures, specimen labels, muted botanical greens, faded rose, and ink.
 - First investigation on microscopy, Gram staining, controls, and evidence quality.
 - Feedback explains why an answer is or is not supported.
 - Local progress and score saved in the browser.
@@ -30,7 +30,8 @@ Each investigation follows three steps:
 - [ ] Add a simulated growth/culture experiment.
 - [ ] Develop cases for all six microbiology units.
 - [ ] Add a final case report that separates observations, interpretations, and limitations.
-- [ ] Test keyboard navigation, mobile layouts, and scientific content.
+- [ ] Test keyboard navigation, mobile layouts, legal pages, and scientific content.
+- [ ] Review privacy and terms drafts against the final deployed site before launch.
 
 ## Syllabus map
 
@@ -60,6 +61,10 @@ This is a static site built with HTML, CSS, and vanilla JavaScript. No package i
 5. Wait for GitHub Pages to publish the site. The URL will appear in the Pages settings.
 
 The site is designed for GitHub Pages and does not require a backend for its current features. Browser-saved progress is local to that browser and device; it is not shared across devices or users.
+
+## Privacy and terms
+
+Draft pages are provided at [`privacy.html`](privacy.html) and [`terms.html`](terms.html). They describe the current prototype and must be checked against the actual deployed configuration before launch. If analytics, forms, accounts, embedded content, or other third-party services are added, review and update the policies before releasing those features.
 
 ## Scientific scope and disclaimer
 
