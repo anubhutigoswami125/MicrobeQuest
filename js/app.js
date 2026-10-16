@@ -184,8 +184,8 @@ function renderEvidence() {
     </section>
     <div class="content-footer"><span>PHASE 02 / 03</span><button class="button button-primary" id="to-conclusion">FORM A CONCLUSION</button></div>`;
   $("#to-conclusion").addEventListener("click", renderQuestion);
-  $("[data-artifact]", content).forEach(button => button.addEventListener("click", () => openDeskArtifact(button.dataset.artifact)));
-  $("[data-evidence-index]", content).forEach(button => button.addEventListener("click", () => openDeskEvidence(Number(button.dataset.evidenceIndex))));
+  $$("[data-artifact]", content).forEach(button => button.addEventListener("click", () => openDeskArtifact(button.dataset.artifact)));
+  $$("[data-evidence-index]", content).forEach(button => button.addEventListener("click", () => openDeskEvidence(Number(button.dataset.evidenceIndex))));
   updateProtocol(1);
   content.focus({ preventScroll: true });
 }
