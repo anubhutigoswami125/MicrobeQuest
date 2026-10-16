@@ -231,6 +231,7 @@ updateProgress();
 /* Optional, accessible guided tour. It uses existing screens and never locks the page. */
 const tourSteps = [
   {target:"#hero-intro",title:"Welcome to MicrobeQuest",copy:"This is a source-based microbiology learning archive. The outbreak reports are real; the questions and guided investigation are original teaching activities."},
+  {target:"#specimen-wall",title:"Inspect the specimen cabinet",copy:"These are real micrographs. Click any photograph to enlarge it, read the specimen note, and open the original image record. Cell shape is a clue, not proof of identity."},
   {target:"#case-files",title:"Choose an archive file",copy:"Each file introduces a documented outbreak. Check the organism, date, geographic scope, and linked public-health report before starting."},
   {target:'[data-case-id="poultry"]',title:"Open a case",copy:"Open a case to begin with a short scientific briefing. You can return to this case index at any time.",afterNext:()=>openCase("poultry")},
   {target:"#investigation-content",title:"Read the source briefing",copy:"Start with the context and the source note. These explain what investigators reported and what the evidence can—and cannot—establish.",afterNext:()=>renderEvidence()},
@@ -295,3 +296,66 @@ window.addEventListener("resize",()=>{if(!tourPanel.hidden)positionTourPanel(tou
 window.addEventListener("scroll",()=>{if(!tourPanel.hidden)positionTourPanel(tourTarget);},{passive:true});
 try{if(localStorage.getItem("mq-tour-complete")!=="true")$("#hero-tour").setAttribute("aria-label","First visit? Take the short website tour");}catch(e){}
 
+
+
+/* Clickable specimens: image, caption, and source record stay together. */
+const specimenRecords={
+  ecoli:{title:"Escherichia coli — scanning electron micrograph",description:"A colorized scanning electron micrograph showing rod-shaped E. coli cells. Micrographs can reveal cell shape and arrangement, but morphology alone cannot establish the strain, virulence, or clinical significance.",credit:"Image: Wikimedia Commons, “Escherichia coli electron microscopy.” Verify the original record for complete credit and reuse details.",source:"https://commons.wikimedia.org/wiki/File:Escherichia_coli_electron_microscopy.jpg",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Escherichia_coli_electron_microscopy.jpg/600px-Escherichia_coli_electron_microscopy.jpg"},
+  clostridium:{title:"Clostridium difficile — scanning electron micrograph",description:"A scanning electron micrograph of C. difficile. The image is a visual specimen record, not a diagnostic key: identification requires appropriate laboratory methods and context.",credit:"Image: Wikimedia Commons, “Clostridium difficile 01.” Open the source page for attribution and reuse details.",source:"https://commons.wikimedia.org/wiki/File:Clostridium_difficile_01.jpg",image:"https://upload.wikimedia.org/wikipedia/commons/0/0f/Clostridium_difficile_01.jpg"},
+  campy:{title:"Campylobacter fetus — scanning electron micrograph",description:"A scanning electron micrograph showing curved bacterial cells. Shape can help guide observation, but it is not sufficient by itself to identify a species.",credit:"Image: Wikimedia Commons, “Campylobacter fetus 01.” The source page identifies this as a public-domain image.",source:"https://commons.wikimedia.org/wiki/File:Campylobacter_fetus_01.jpg",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Campylobacter_fetus_01.jpg/1024px-Campylobacter_fetus_01.jpg"}
+};
+const specimenModal=$("#specimen-modal");
+let specimenReturnFocus=null;
+function openSpecimen(id){
+  const record=specimenRecords[id];if(!record)return;
+  specimenReturnFocus=document.activeElement;
+  $("#specimen-modal-title").textContent=record.title;
+  $("#specimen-modal-description").textContent=record.description;
+  $("#specimen-modal-credit").textContent=record.credit;
+  $("#specimen-modal-source").href=record.source;
+  $("#specimen-modal-image").src=record.image;
+  $("#specimen-modal-image").alt=record.title;
+  specimenModal.hidden=false;
+  document.body.classList.add("modal-open");
+  $("#specimen-modal-close")?.focus();
+  $(".specimen-modal-close",specimenModal).focus();
+}
+function closeSpecimen(){
+  specimenModal.hidden=true;document.body.classList.remove("modal-open");
+  if(specimenReturnFocus&&typeof specimenReturnFocus.focus==="function")specimenReturnFocus.focus();
+}
+$$("[data-specimen]").forEach(button=>button.addEventListener("click",()=>openSpecimen(button.dataset.specimen)));
+$$("[data-close-specimen]").forEach(button=>button.addEventListener("click",closeSpecimen));
+document.addEventListener("keydown",event=>{if(!specimenModal.hidden&&event.key==="Escape")closeSpecimen();});
+/* Cards and unit tabs are interactive surfaces, while links and buttons keep their own actions. */
+function makeCardInteractive(card,handler,label){
+  if(!card||card.dataset.surfaceReady)return;
+  card.dataset.surfaceReady="true";card.tabIndex=0;card.setAttribute("role","button");card.setAttribute("aria-label",label);
+  card.addEventListener("click",event=>{if(event.target.closest("a,button,input,select,textarea"))return;handler();});
+  card.addEventListener("keydown",event=>{if(event.target!==card)return;if(event.key==="Enter"||event.key===" "){event.preventDefault();handler();}});
+}
+$$(".case-card").forEach(card=>{
+  const button=$("[data-case-id]",card);
+  if(button)makeCardInteractive(card,()=>openCase(button.dataset.caseId),"Open case "+($("h3",card)?.textContent||"file"));
+});
+const unitNotes=[
+  {title:"Unit I — Cells & Microscopy",copy:"Explore microbial cell structure, microscopy, staining, and the limits of visual identification. Start with the available outbreak files to practise separating observations from conclusions.",action:"case"},
+  {title:"Unit II — Growth & Culture",copy:"Field-note preview: microbial diversity, culture media, growth phases, and how conditions change what can be observed. The full unit investigation is planned for a later release.",action:"note"},
+  {title:"Unit III — Energy & Fermentation",copy:"Field-note preview: aerobic and anaerobic respiration, fermentation, and microbial energy pathways. The full unit investigation is planned for a later release.",action:"note"},
+  {title:"Unit IV — Microbial Genetics",copy:"Field-note preview: transformation, conjugation, transduction, plasmids, and transposons. The full unit investigation is planned for a later release.",action:"note"},
+  {title:"Unit V — Microbes in Ecosystems",copy:"Field-note preview: environmental microbes and interactions among organisms. The full unit investigation is planned for a later release.",action:"note"},
+  {title:"Unit VI — Control & Resistance",copy:"Field-note preview: sterilisation, disinfection, antimicrobial agents, and resistance. The full unit investigation is planned for a later release.",action:"note"}
+];
+function openUnitNote(index){
+  const note=unitNotes[index];if(!note)return;
+  if(note.action==="case"){openCase("poultry");return;}
+  showToast(note.title+" — field note preview");
+  const panel=document.createElement("section");panel.className="unit-note-popover";panel.setAttribute("role","dialog");panel.setAttribute("aria-modal","true");panel.setAttribute("aria-label",note.title);
+  panel.innerHTML='<button type="button" class="unit-note-backdrop" aria-label="Close field note"></button><article class="unit-note-card"><button type="button" class="unit-note-close" aria-label="Close">×</button><p class="eyebrow">MICROBIOLOGY MAP / FIELD NOTE '+String(index+1).padStart(2,"0")+'</p><h2></h2><p class="unit-note-copy"></p><div class="unit-note-footer">IN DEVELOPMENT · COURSE-ALIGNED CASE CONTENT</div><button type="button" class="button button-primary unit-note-return">RETURN TO THE FIELD GUIDE</button></article>';
+  panel.querySelector("h2").textContent=note.title;panel.querySelector(".unit-note-copy").textContent=note.copy;document.body.appendChild(panel);
+  const close=()=>{panel.remove();};
+  panel.querySelectorAll(".unit-note-close,.unit-note-backdrop,.unit-note-return").forEach(b=>b.addEventListener("click",close));
+  panel.querySelector(".unit-note-close").focus();
+  panel.addEventListener("keydown",event=>{if(event.key==="Escape")close();});
+}
+$$(".unit-card").forEach((card,index)=>makeCardInteractive(card,()=>openUnitNote(index),"Open "+($("h3",card)?.textContent||"unit")+" field note"));
