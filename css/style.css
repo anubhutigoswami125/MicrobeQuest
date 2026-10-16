@@ -978,3 +978,18 @@ body{
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
+
+
+/* Archive index metadata: source date and geographic scope */
+.case-geography{
+  margin:8px 0 0;
+  padding:7px 9px;
+  border-left:2px solid #a58a52;
+  background:#eee8d8;
+  color:#67644f;
+  font:italic 12px/1.5 Georgia,"Times New Roman",serif;
+}
+.case-card-archive .case-meta{font-size:9px;line-height:1.6}
+@media(max-width:620px){
+  .case-geography{font-size:12px}
+}
