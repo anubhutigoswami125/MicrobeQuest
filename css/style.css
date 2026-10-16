@@ -694,3 +694,287 @@ body{
   .credits-details dl{grid-template-columns:1fr}
   .credits-seal{width:48px;height:48px;right:20px;top:20px;font-size:6px}
 }
+
+
+/* THE BOTANICAL PATHOGEN ARCHIVE — visual system */
+:root{
+  --archive-forest:#263e2e;
+  --archive-forest-deep:#1e3024;
+  --archive-sage:#aab89a;
+  --archive-moss:#647354;
+  --archive-ivory:#f7f1e4;
+  --archive-paper:#fcf8ed;
+  --archive-burgundy:#75413f;
+  --archive-gold:#a58a52;
+  --archive-rule:#c6b797;
+}
+body{
+  color:var(--archive-forest-deep);
+  background-color:#d9d1be;
+  background-image:
+    radial-gradient(#9d967d .55px,transparent .7px),
+    linear-gradient(90deg,#d0c5ae 0,#e8dfce 9%,#e8dfce 91%,#d0c5ae 100%);
+  font-family:Arial,Helvetica,sans-serif;
+}
+.desktop-shell{
+  background:var(--archive-ivory);
+  border-color:#a79a7c;
+  box-shadow:0 0 0 5px #e9e0cf,0 0 0 6px #b9a98a;
+}
+.topbar{
+  background:#e7deca;
+  border-bottom:3px double #a58a52;
+}
+.brand strong{font-family:"Cormorant Garamond",Georgia,serif;font-size:17px;letter-spacing:2px}
+.brand small{font-family:Arial,Helvetica,sans-serif;letter-spacing:1.1px}
+.brand-mark{
+  background:var(--archive-forest);
+  color:var(--archive-ivory);
+  border:1px solid var(--archive-gold);
+  box-shadow:3px 3px 0 #c9b997;
+}
+.topbar-status,.topbar-link,.button,.eyebrow,.case-tags,.case-meta,.unit-id,.unit-state,.footer-links{
+  font-family:Arial,Helvetica,sans-serif;
+}
+.topbar-status{color:#5d684e}
+.topbar-link{border-color:var(--archive-gold);color:var(--archive-forest)}
+.hero{
+  isolation:isolate;
+  position:relative;
+  overflow:hidden;
+  padding:clamp(36px,5vw,66px) clamp(24px,8vw,112px) 48px;
+  background:
+    radial-gradient(ellipse at 95% 0%,#dce2ce 0,transparent 32%),
+    radial-gradient(ellipse at 0% 100%,#e7d7bc 0,transparent 28%),
+    var(--archive-ivory);
+  border-bottom:3px double #b5a582;
+}
+.hero:before{
+  inset:13px;
+  border:1px solid #b8aa8c;
+  border-radius:4px 32px 4px 32px;
+}
+.hero:after{
+  content:"FIELD SERIES  /  MICROBIOLOGY • EPIDEMIOLOGY • NATURAL HISTORY";
+  color:#7b735b;
+  font:9px Arial,Helvetica,sans-serif;
+  letter-spacing:1.2px;
+  right:clamp(26px,8vw,112px);
+  bottom:14px;
+}
+.hero-botanical-plate{
+  position:absolute;
+  z-index:-1;
+  width:clamp(155px,25vw,300px);
+  height:auto;
+  right:clamp(14px,5vw,72px);
+  top:12px;
+  color:#617751;
+  opacity:.7;
+  pointer-events:none;
+}
+.hero-copy{max-width:800px;padding:8px 0 18px;position:relative;z-index:1}
+.hero .eyebrow{
+  color:var(--archive-forest);
+  background:#e5e7d6;
+  border:1px solid #bdc6ad;
+  padding:7px 10px;
+  display:inline-block;
+  letter-spacing:1.3px;
+  margin-bottom:17px;
+}
+.hero h1{
+  max-width:850px;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(43px,6.6vw,78px);
+  line-height:.93;
+  font-weight:500;
+  letter-spacing:-.6px;
+  text-transform:uppercase;
+  color:var(--archive-forest-deep);
+  margin-bottom:20px;
+}
+.hero h1 span{
+  color:var(--archive-burgundy);
+  font-style:italic;
+  text-shadow:none;
+  text-transform:none;
+}
+.hero-description{
+  max-width:630px;
+  color:#515b49;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:16px;
+  line-height:1.75;
+}
+.hero-footnote{
+  display:inline-block;
+  background:#e9e0cd;
+  border:1px dashed #b6a582;
+  padding:8px 11px;
+  color:#59664b;
+  font:11px Arial,Helvetica,sans-serif;
+}
+.button{
+  border:1px solid var(--archive-forest);
+  border-radius:1px 8px 1px 8px;
+  font:600 10px Arial,Helvetica,sans-serif;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+}
+.button-primary{
+  background:var(--archive-forest);
+  color:#fff8e9;
+  box-shadow:3px 3px 0 #c8b895;
+}
+.button-secondary{background:#faf5e8;color:var(--archive-forest)}
+.button:hover{box-shadow:3px 3px 0 var(--archive-gold)}
+.mission-strip{
+  background:#e5e5d3;
+  border:1px solid #b4b89b;
+  border-radius:3px 26px 3px 26px;
+  box-shadow:3px 4px 0 #d5c8ae;
+}
+.mission-strip:before{background:#d4c7a6;border-color:#b6a582}
+.mission-strip strong{font-family:Arial,Helvetica,sans-serif;color:var(--archive-forest)}
+.case-section{
+  background:
+    radial-gradient(ellipse at 100% 4%,#e2e2ce 0,transparent 20%),
+    #f2eadb;
+}
+.section-heading h2,.field-guide h2{
+  color:var(--archive-forest);
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-weight:500;
+  letter-spacing:.2px;
+}
+.section-heading .eyebrow,.field-guide .eyebrow{color:var(--archive-burgundy)}
+.heading-period{color:var(--archive-gold)}
+.archive-intro{
+  border-left:3px solid var(--archive-moss);
+  background:#e8e3d2;
+  color:#555b48;
+  font:16px/1.75 Arial,Helvetica,sans-serif;
+}
+.case-card,.case-card-archive{
+  position:relative;
+  background:var(--archive-paper);
+  border:1px solid #bcae8f;
+  border-radius:3px 20px 3px 20px;
+  box-shadow:4px 5px 0 #d8cbb1;
+}
+.case-card:nth-child(2),.case-card-archive:nth-child(2){background:#f5eddd}
+.case-card:before,.case-card-archive:before{
+  background:#d8caa8d9;
+  border:1px solid #b6a582;
+}
+.case-card-index,.case-card-archive .case-card-index{
+  background:#e5e4d2;
+  border-bottom:1px dashed #bdb394;
+}
+.case-card-index strong,.case-card-archive .case-card-index strong{
+  color:var(--archive-forest);
+  font-family:"Cormorant Garamond",Georgia,serif;
+}
+.case-stamp,.case-card-archive .case-stamp{
+  color:var(--archive-burgundy);
+  border-color:var(--archive-gold);
+}
+.case-card-main h3,.case-card-archive .case-card-main h3{
+  color:#293f2e;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-weight:600;
+}
+.case-card-main p,.case-card-archive .case-card-main p{
+  color:#555b49;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:14px;
+  line-height:1.7;
+}
+.case-tags span,.case-card-archive .case-tags span{
+  background:#e5e9d9;
+  color:#3f5b3e;
+  border-color:#c0c7ae;
+  border-radius:1px 7px 1px 7px;
+}
+.case-tags span:first-child,.case-card-archive .case-tags span:first-child{
+  background:#eadbd4;
+  border-color:#d0b5a4;
+  color:var(--archive-burgundy);
+}
+.case-meta{color:#73725a}
+.source-link{color:var(--archive-burgundy);text-decoration-color:var(--archive-gold)}
+.case-card-action{background:#eee6d4;border-color:#c7b99a}
+.case-seal,.case-card-archive .case-seal{
+  background:#e4e5d2;
+  color:var(--archive-forest);
+  border-color:#879371;
+}
+.field-guide{
+  background:#e4e6d5;
+  border:1px solid #b3b99c;
+  border-radius:3px 32px 3px 32px;
+}
+.field-guide:after{border-color:#a58a52}
+.unit-card{
+  background:#faf5e8;
+  border-color:#c0b397;
+  border-radius:3px 17px 3px 17px;
+}
+.unit-card h3{font-family:"Cormorant Garamond",Georgia,serif;color:var(--archive-forest)}
+.unit-card p{font:14px/1.65 Arial,Helvetica,sans-serif;color:#59604d}
+.unit-glyph{color:var(--archive-burgundy)}
+.principles{
+  background:var(--archive-forest);
+  border:3px double var(--archive-gold);
+  border-radius:3px 30px 3px 30px;
+}
+.principles h2{font-family:"Cormorant Garamond",Georgia,serif}
+.principles h2 span{color:#c5a56b}
+.principles>p{font:italic 20px/1.5 "Cormorant Garamond",Georgia,serif}
+.credits-panel{
+  background:
+    radial-gradient(ellipse at 100% 0%,#e2e5d3 0,transparent 34%),
+    #f8f1e3;
+  border-color:#b8a789;
+  box-shadow:inset 0 0 0 6px #f0e7d5,inset 0 0 0 7px #c7b896;
+}
+.credits-heading .eyebrow{color:var(--archive-burgundy)}
+.credits-heading h2,.credits-name{color:var(--archive-forest)}
+.credits-details dt{font-family:Arial,Helvetica,sans-serif}
+.credits-details dd{font-family:Arial,Helvetica,sans-serif}
+.credits-details a{color:#345b3a}
+.credits-seal{border-color:var(--archive-gold);color:var(--archive-burgundy)}
+.site-footer{background:#e5dcc9;border-top-color:#a58a52}
+.footer-links a{color:var(--archive-forest)}
+.investigation{background:#f6efdf;border-color:#b8aa8c}
+.case-sidebar{background:#e5e0cd;border-color:#c7b99a}
+.investigation-content{background:#fcf8ed;border-color:#cbbd9f}
+.content-kicker,.sidebar-label,.evidence-tag{color:#536d48}
+.briefing-card,.evidence-item,.question-block{
+  background:#faf5e8;
+  border-color:#c6b99b;
+  border-radius:3px 16px 3px 16px;
+}
+.briefing-card h3,.evidence-item h3{font-family:"Cormorant Garamond",Georgia,serif;color:var(--archive-forest)}
+.briefing-card p,.evidence-item p{font:14px/1.7 Arial,Helvetica,sans-serif;color:#555b49}
+.science-note{background:#e6e7d5;border-color:#c0c5a8;border-left-color:var(--archive-moss)}
+.science-note p{font:14px/1.7 Arial,Helvetica,sans-serif;color:#4f5946}
+.answer-option{background:#fcf8ed;border-color:#c3b797}
+.answer-option[aria-pressed="true"]{background:#e4e8d8;border-color:#607850}
+.feedback{border:1px solid #9cab88;border-left:4px solid #496b46;background:#e7eadb;padding:18px;margin-top:18px}
+.feedback strong{color:#2c4a32;font:600 11px Arial,Helvetica,sans-serif;letter-spacing:1px}
+.feedback p{color:#4f5946;font:15px/1.7 Arial,Helvetica,sans-serif}
+.feedback.incorrect{border-color:#c5a79a;border-left-color:var(--archive-burgundy);background:#f0e1d9}
+.feedback.incorrect strong{color:var(--archive-burgundy)}
+.toast{background:var(--archive-forest);border-color:var(--archive-gold);border-radius:2px 10px 2px 10px}
+@media(max-width:700px){
+  .hero{padding:32px 22px 48px}
+  .hero-botanical-plate{width:150px;right:-18px;top:20px;opacity:.38}
+  .hero h1{font-size:clamp(38px,10vw,58px);letter-spacing:-.3px}
+  .hero-description{font-size:15px}
+  .hero:after{left:24px;right:auto;max-width:calc(100% - 48px);font-size:7px;letter-spacing:.5px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
