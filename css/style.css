@@ -1243,3 +1243,12 @@ button:focus-visible,a:focus-visible,[tabindex="-1"]:focus-visible{outline:2px s
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
 }
+
+/* GitHub Pages incident-file additions */
+.case-card-added{position:relative;transform:rotate(-.7deg);background:#e7d6b2;border:1px solid #9b845b;box-shadow:5px 6px 0 #87734f,inset 0 0 0 4px #f3e6c8;margin-top:8px}
+.case-card-added:nth-child(even){transform:rotate(.7deg) translateY(9px)}
+.case-card-added:before{content:"";position:absolute;top:-7px;left:42%;width:68px;height:16px;background:#b7b28bdb;border:1px solid #857b5a;transform:rotate(-4deg);z-index:2}
+.case-card-added:hover,.case-card-added:focus-within{z-index:5;transform:rotate(0) translateY(-3px)}
+.case-card-added .case-card-index{background:#d3bf94}
+.credits-details dl>div:has(dt:first-child){ }
+@media(max-width:760px){.case-card-added,.case-card-added:nth-child(even){transform:none;margin-top:8px}.case-card-added:before{left:65%}}
