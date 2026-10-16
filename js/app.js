@@ -214,9 +214,76 @@ function updateProtocol(activeIndex) {
   $$(".protocol-step").forEach((step, index) => step.classList.toggle("active", index === activeIndex));
 }
 $("#start-investigation").addEventListener("click", () => openCase("poultry"));
-$("#specimen-hotspot").addEventListener("click", () => openCase("poultry"));
-$$("[data-case-id]").forEach(button => button.addEventListener("click", () => openCase(button.dataset.caseId)));
+$("[data-case-id]").forEach(button => button.addEventListener("click", () => openCase(button.dataset.caseId)));
 $("#close-case").addEventListener("click", closeCase);
 $("#to-evidence").addEventListener("click", renderEvidence);
 updateScore();
 updateProgress();
+
+/* Optional, accessible guided tour. It uses existing screens and never locks the page. */
+const tourSteps = [
+  {target:"#hero-intro",title:"Welcome to MicrobeQuest",copy:"This is a source-based microbiology learning archive. The outbreak reports are real; the questions and guided investigation are original teaching activities."},
+  {target:"#case-files",title:"Choose an archive file",copy:"Each file introduces a documented outbreak. Check the organism, date, geographic scope, and linked public-health report before starting."},
+  {target:'[data-case-id="poultry"]',title:"Open a case",copy:"Open a case to begin with a short scientific briefing. You can return to this case index at any time.",afterNext:()=>openCase("poultry")},
+  {target:"#investigation-content",title:"Read the source briefing",copy:"Start with the context and the source note. These explain what investigators reported and what the evidence can—and cannot—establish.",afterNext:()=>renderEvidence()},
+  {target:"#investigation-content",title:"Inspect the evidence ledger",copy:"Review each evidence summary, then follow the primary-source link to check the original report. Treat each summary as a clue, not as proof on its own.",afterNext:()=>renderQuestion()},
+  {target:".question-block",title:"Test your interpretation",copy:"Choose the conclusion that best fits the record. The feedback explains the reasoning; use the original report to check the evidence and its limitations."},
+  {target:"#score",title:"Score, feedback and sources",copy:"Your score and completed-case status are shown here. After answering, review the feedback, revisit the evidence, or open the original source from the case. Select Finish to end the tour."}
+];
+let tourIndex=0;
+let tourTarget=null;
+const tourPanel=$("#tour-guide");
+function clearTourTarget(){if(tourTarget){tourTarget.classList.remove("tour-target-active");tourTarget.removeAttribute("aria-describedby");tourTarget=null;}}
+function positionTourPanel(target){
+  if(!target)return;
+  const rect=target.getBoundingClientRect();
+  const panelRect=tourPanel.getBoundingClientRect();
+  const margin=12;
+  let left=Math.max(margin,Math.min(window.innerWidth-panelRect.width-margin,rect.left+(rect.width-panelRect.width)/2));
+  let top=rect.bottom+12;
+  if(top+panelRect.height>window.innerHeight-margin)top=rect.top-panelRect.height-12;
+  if(top<margin)top=margin;
+  tourPanel.style.left=left+"px";tourPanel.style.top=top+"px";
+}
+function showTourStep(index){
+  clearTourTarget();
+  tourIndex=Math.max(0,Math.min(index,tourSteps.length-1));
+  const step=tourSteps[tourIndex];
+  let target=document.querySelector(step.target);
+  if(!target)target=document.querySelector("#main");
+  tourTarget=target;
+  tourTarget.classList.add("tour-target-active");
+  tourTarget.setAttribute("aria-describedby","tour-guide");
+  tourPanel.hidden=false;
+  $("#tour-count").textContent="STEP "+(tourIndex+1)+" OF "+tourSteps.length;
+  $("#tour-title").textContent=step.title;
+  $("#tour-copy").textContent=step.copy;
+  $("#tour-progress-bar").style.width=((tourIndex+1)/tourSteps.length*100)+"%";
+  $("#tour-back").disabled=tourIndex===0;
+  $("#tour-next").textContent=tourIndex===tourSteps.length-1?"FINISH":"NEXT →";
+  target.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center",inline:"nearest"});
+  requestAnimationFrame(()=>positionTourPanel(target));
+}
+function endTour(completed=false){
+  clearTourTarget();tourPanel.hidden=true;tourPanel.style.left="";tourPanel.style.top="";
+  if(completed){try{localStorage.setItem("mq-tour-complete","true");}catch(e){}}
+  $("#take-tour").focus({preventScroll:true});
+}
+function startTour(){showTourStep(0);}
+function nextTourStep(){
+  const step=tourSteps[tourIndex];
+  if(step.afterNext)step.afterNext();
+  if(tourIndex===tourSteps.length-1){endTour(true);return;}
+  showTourStep(tourIndex+1);
+}
+$("#take-tour").addEventListener("click",startTour);
+$("#hero-tour").addEventListener("click",startTour);
+$("#tour-next").addEventListener("click",nextTourStep);
+$("#tour-back").addEventListener("click",()=>{if(tourIndex>0)showTourStep(tourIndex-1);});
+$("#tour-skip").addEventListener("click",()=>endTour(false));
+$("#tour-close").addEventListener("click",()=>endTour(false));
+document.addEventListener("keydown",event=>{if(tourPanel.hidden)return;if(event.key==="Escape"){endTour(false);}else if(event.key==="ArrowRight"&&!$("#tour-next").disabled){nextTourStep();}else if(event.key==="ArrowLeft"&&tourIndex>0){showTourStep(tourIndex-1);}});
+window.addEventListener("resize",()=>{if(!tourPanel.hidden)positionTourPanel(tourTarget);});
+window.addEventListener("scroll",()=>{if(!tourPanel.hidden)positionTourPanel(tourTarget);},{passive:true});
+try{if(localStorage.getItem("mq-tour-complete")!=="true")$("#hero-tour").setAttribute("aria-label","First visit? Take the short website tour");}catch(e){}
+
