@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8b8e7">
-  <meta name="description" content="MicrobeQuest is a microbiology investigation simulator built around scientific evidence, virtual experiments, and case-based learning.">
-  <title>MicrobeQuest // The Outbreak Files</title>
+  <meta name="theme-color" content="#f5f0e4">
+  <meta name="description" content="A botanical field notebook for interactive microbiology investigations, evidence review, and scientific reasoning.">
+  <title>MicrobeQuest | A Botanical Microbiology Field Journal</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/app.js" defer></script>
 </head>
@@ -14,28 +14,28 @@
   <div class="desktop-shell">
     <header class="topbar">
       <a class="brand" href="#" aria-label="MicrobeQuest home">
-        <span class="brand-mark" aria-hidden="true">MQ</span>
-        <span><strong>MICROBEQUEST</strong><small>THE OUTBREAK FILES</small></span>
+        <span class="brand-mark" aria-hidden="true">M.</span>
+        <span><strong>MICROBEQUEST</strong><small>BOTANICAL FIELD JOURNAL</small></span>
       </a>
-      <div class="topbar-status"><span class="status-dot"></span> FIELD LAB ONLINE <span class="topbar-divider">/</span> BUILD 01</div>
-      <a class="topbar-link" href="#field-guide">FIELD GUIDE ↗</a>
+      <div class="topbar-status">FIELD NOTES <span class="topbar-divider">/</span> VOL. 01</div>
+      <a class="topbar-link" href="#field-guide">OPEN THE FIELD GUIDE</a>
     </header>
 
     <main id="main">
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="pixel-star">✦</span> INTERACTIVE MICROBIOLOGY SIMULATOR</p>
-          <h1>THE TRUTH IS<br><span>IN THE CULTURE.</span></h1>
-          <p class="hero-description">A sample arrived. The results don't agree. Your job is to investigate the evidence, test a hypothesis, and explain what the microbes are telling you.</p>
+          <p class="eyebrow">FIELD JOURNAL NO. 01 · MICROBIOLOGY</p>
+          <h1>FIELD NOTES<br><span>ON THE UNSEEN.</span></h1>
+          <p class="hero-description">Examine a teaching-lab case, review the observations, and choose the next step a careful microbiologist would take. Each click opens a note, a result, or a decision to investigate.</p>
           <div class="hero-actions">
-            <button class="button button-primary" id="start-investigation">OPEN CASE FILE <span aria-hidden="true">→</span></button>
-            <a class="button button-secondary" href="#field-guide">EXPLORE THE LAB ↓</a>
+            <button class="button button-primary" id="start-investigation">OPEN CASE 001</button>
+            <a class="button button-secondary" href="#field-guide">BROWSE THE FIELD GUIDE</a>
           </div>
-          <div class="hero-footnote"><span class="tiny-square"></span> No lab coat required. Scientific reasoning is.</div>
+          <div class="hero-footnote">NOTE TO THE INVESTIGATOR: record what you observe before deciding what it means.</div>
         </div>
         <div class="hero-art" aria-label="Pixel-inspired illustrated petri dish">
           <div class="art-window">
-            <div class="window-bar"><span>SPECIMEN_VIEW.EXE</span><span>□ ×</span></div>
+            <div class="window-bar"><span>SPECIMEN PLATE · 001</span><span>□ ×</span></div>
             <div class="petri-scene">
               <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
               <div class="petri-dish"><div class="dish-glint"></div><span class="microbe microbe-a">✳</span><span class="microbe microbe-b">✣</span><span class="microbe microbe-c">✦</span><span class="microbe microbe-d">✳</span><span class="microbe microbe-e">✣</span><span class="microbe microbe-f">✦</span><span class="microbe microbe-g">✳</span></div>
@@ -43,12 +43,12 @@
               <span class="art-label label-bottom">OBSERVE → TEST → EXPLAIN</span>
               <span class="spark spark-one">✦</span><span class="spark spark-two">✧</span><span class="spark spark-three">✦</span>
             </div>
-            <div class="window-footer"><span>MICROSCOPE FEED</span><span class="feed-status">● SIGNAL STABLE</span></div>
+            <div class="window-footer"><span>MICROSCOPE FEED</span><span class="feed-status">CONTROL: REVIEW REQUIRED</span></div>
           </div>
-          <div class="floating-note note-left">EVIDENCE<br>OVER ASSUMPTION</div>
-          <div class="floating-note note-right">CASE 001<br><strong>UNSEALED</strong></div>
+          <div class="floating-note note-left">OBSERVE<br>THEN INTERPRET</div>
+          <div class="floating-note note-right">FIELD NOTE<br><strong>NO. 001</strong></div>
         </div>
-        <div class="hero-sticker" aria-hidden="true">THINK<br>LIKE A<br>MICROBIOLOGIST!</div>
+        <div class="hero-sticker" aria-hidden="true">SPECIMEN<br>STUDY<br>NO. 001</div>
       </section>
 
       <section class="mission-strip" aria-label="Learning loop">
@@ -61,11 +61,11 @@
 
       <section class="case-section" id="case-files">
         <div class="section-heading">
-          <div><p class="eyebrow">YOUR WORK STARTS HERE</p><h2>OPEN CASE FILES<span class="heading-period">.</span></h2></div>
-          <p class="section-aside">Every answer should have a reason.<br>Every conclusion needs evidence.</p>
+          <div><p class="eyebrow">THE CASEBOOK</p><h2>INVESTIGATIONS<span class="heading-period">.</span></h2></div>
+          <p class="section-aside">Click into a case.<br>Follow the evidence.</p>
         </div>
         <div class="case-card">
-          <div class="case-card-index"><span>CASE</span><strong>001</strong><span class="case-stamp">NEW</span></div>
+          <div class="case-card-index"><span>CASE</span><strong>001</strong><span class="case-stamp">OPEN</span></div>
           <div class="case-card-main">
             <div class="case-tags"><span>UNIT I</span><span>CELL STRUCTURE</span><span>BEGINNER</span></div>
             <h3>The Mystery of the Missing Cell Wall</h3>
@@ -120,7 +120,7 @@
       </section>
     </main>
 
-    <footer class="site-footer"><a class="brand footer-brand" href="#"><span class="brand-mark">MQ</span><span><strong>MICROBEQUEST</strong><small>THE OUTBREAK FILES</small></span></a><p>An educational project for learning microbiology through investigation.</p><a href="https://github.com/anubhutigoswami125/MicrobeQuest" target="_blank" rel="noreferrer">VIEW SOURCE ↗</a></footer>
+    <footer class="site-footer"><a class="brand footer-brand" href="#"><span class="brand-mark">MQ</span><span><strong>MICROBEQUEST</strong><small>THE OUTBREAK FILES</small></span></a><p>A student-built field journal for evidence-led microbiology learning.</p><nav class="footer-links" aria-label="Legal and project links"><a href="privacy.html">PRIVACY POLICY</a><a href="terms.html">TERMS &amp; CONDITIONS</a><a href="https://github.com/anubhutigoswami125/MicrobeQuest" target="_blank" rel="noreferrer">SOURCE REPOSITORY</a></nav></footer>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
