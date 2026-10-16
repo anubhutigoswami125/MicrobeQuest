@@ -491,3 +491,206 @@ body{
   .case-section{padding:40px 18px 54px}
   .case-card:nth-child(2),.case-card:nth-child(3){transform:none}
 }
+
+
+/* GOTHIC BOTANICAL ACADEMIA / NATURAL HISTORY ARCHIVE */
+:root{
+  --archive-ink:#202f25;
+  --archive-green:#263e2e;
+  --archive-moss:#647354;
+  --archive-bone:#f1eadb;
+  --archive-paper:#faf5e8;
+  --archive-brass:#a28c63;
+}
+body{
+  background-color:#d8cfbb;
+  background-image:radial-gradient(#8f8a70 0.55px,transparent 0.7px),linear-gradient(90deg,#cfc4ad 0,#e5dcc9 10%,#e5dcc9 90%,#cfc4ad 100%);
+  color:var(--archive-ink);
+}
+.desktop-shell{
+  background:var(--archive-bone);
+  border-color:#a99a7d;
+  box-shadow:0 0 0 5px #e5dcc9,0 0 0 6px #b8a789;
+}
+.topbar{
+  background:#e7deca;
+  border-bottom:3px double #6f7658;
+}
+.brand-mark{
+  background:#263e2e;
+  color:#f6efdf;
+  border:1px solid #a28c63;
+  box-shadow:3px 3px 0 #c8b99a;
+}
+.hero{
+  background:
+    radial-gradient(ellipse at 100% 0%,#d7dfc9 0,transparent 30%),
+    radial-gradient(ellipse at 0% 100%,#e4d4b8 0,transparent 26%),
+    #f7f0e2;
+  border-bottom:3px double #a99a7d;
+}
+.hero:before{
+  border:1px solid #b9aa8c;
+  border-radius:4px 34px 4px 34px;
+}
+.hero .eyebrow{
+  color:#344f36;
+  background:#e4e6d3;
+  border-color:#b6c1a6;
+  font-variant:small-caps;
+  letter-spacing:1.6px;
+}
+.hero h1,.section-heading h2,.field-guide h2,.credits-heading h2{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  color:#233c2b;
+  text-transform:uppercase;
+  letter-spacing:.02em;
+}
+.hero h1 span{color:#63734d;font-style:italic;text-transform:none}
+.button{
+  border-radius:1px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.button-primary{background:#2d4933;border-color:#263e2e;box-shadow:3px 3px 0 #b8a789}
+.button-secondary{background:#f8f1e3;border-color:#69785b}
+.mission-strip{
+  background:#e4e3d0;
+  border:1px solid #a8ae8f;
+  border-radius:2px 28px 2px 28px;
+  box-shadow:3px 4px 0 #d2c4a8;
+}
+.case-section{
+  background:
+    radial-gradient(ellipse at 100% 0%,#e1dfc9 0,transparent 18%),
+    #f2eadb;
+}
+.case-card,.case-card-archive{
+  background:#faf5e8;
+  border:1px solid #b9aa8b;
+  border-radius:2px 22px 2px 22px;
+  box-shadow:4px 5px 0 #d8cbb2;
+}
+.case-card:before{
+  background:#d6c8a9cc;
+  border-color:#b7a47f;
+}
+.case-card-index{background:#e4e3d1}
+.case-tags span{border-radius:1px 7px 1px 7px}
+.field-guide{
+  background:#e4e5d4;
+  border:1px solid #aeb69b;
+  border-radius:2px 34px 2px 34px;
+}
+.unit-card{border-radius:2px 18px 2px 18px;background:#faf5e8}
+.principles{
+  background:#253c2c;
+  border:3px double #a99a7d;
+  border-radius:2px 30px 2px 30px;
+}
+.site-footer{
+  display:block;
+  padding:0 clamp(20px,5vw,68px) 28px;
+  background:#e6ddca;
+  border-top:3px double #8e8b6d;
+  border-radius:0;
+}
+.credits-panel{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:26px;
+  align-items:start;
+  margin:0 0 28px;
+  padding:clamp(22px,4vw,42px);
+  background:
+    radial-gradient(ellipse at 100% 0%,#e1e4d0 0,transparent 35%),
+    #f8f2e5;
+  border:1px solid #b8a789;
+  border-top:0;
+  box-shadow:inset 0 0 0 6px #f0e7d5,inset 0 0 0 7px #d0c1a3;
+}
+.credits-panel:before,.credits-panel:after{
+  content:"";
+  position:absolute;
+  width:24px;height:24px;
+  border-color:#728365;
+  border-style:solid;
+  pointer-events:none;
+}
+.credits-panel:before{top:12px;left:12px;border-width:1px 0 0 1px}
+.credits-panel:after{right:12px;bottom:12px;border-width:0 1px 1px 0}
+.credits-heading .eyebrow{
+  color:#687452;
+  font:9px "DM Mono",monospace;
+  letter-spacing:1.3px;
+}
+.credits-heading h2{
+  margin:0 0 10px;
+  font-size:clamp(28px,3.5vw,42px);
+  line-height:.98;
+  text-transform:none;
+  font-style:italic;
+  font-weight:500;
+}
+.credits-heading>p:last-child{
+  max-width:340px;
+  color:#65654f;
+  font:italic 17px/1.5 Georgia,serif;
+}
+.credits-details{min-width:0;padding-top:8px}
+.credits-name{
+  margin:0 0 15px;
+  padding-bottom:10px;
+  border-bottom:1px solid #b9aa8b;
+  color:#293f2d;
+  font:600 26px "Cormorant Garamond",Georgia,serif;
+}
+.credits-details dl{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;margin:0}
+.credits-details dl>div{min-width:0;padding:10px 0;border-bottom:1px dashed #c7b99e}
+.credits-details dt{
+  margin-bottom:4px;
+  color:#77745c;
+  font:9px "DM Mono",monospace;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+}
+.credits-details dd{
+  margin:0;
+  overflow-wrap:anywhere;
+  color:#344c35;
+  font:14px/1.45 Georgia,serif;
+}
+.credits-details a{
+  color:#345b3a;
+  text-decoration-thickness:1px;
+  text-underline-offset:3px;
+}
+.credits-details a:hover{color:#825d43}
+.credits-seal{
+  position:absolute;
+  right:24px;
+  top:20px;
+  width:58px;
+  height:58px;
+  display:grid;
+  align-content:center;
+  text-align:center;
+  border:1px solid #8e9673;
+  border-radius:50%;
+  color:#536748;
+  background:#e9e7d4;
+  font:7px/1.3 "DM Mono",monospace;
+  letter-spacing:.5px;
+  transform:rotate(8deg);
+}
+.credits-seal b{font-weight:500;font-size:9px}
+.footer-brand{margin-bottom:12px}
+.site-footer>p{color:#5d644f}
+.footer-links a{color:#344f36}
+@media(max-width:720px){
+  .credits-panel{grid-template-columns:1fr;gap:8px;padding:30px 22px}
+  .credits-heading{padding-right:42px}
+  .credits-details dl{grid-template-columns:1fr}
+  .credits-seal{width:48px;height:48px;right:20px;top:20px;font-size:6px}
+}
