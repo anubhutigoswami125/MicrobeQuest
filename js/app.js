@@ -62,7 +62,7 @@ function closeCase() {
 function renderEvidence() {
   const content = $("#investigation-content");
   content.innerHTML = `
-    <div class="content-kicker"><span class="kicker-icon">✦</span> PHASE 02 — EVIDENCE REVIEW</div>
+    <div class="content-kicker"><span class="kicker-icon">FIELD NOTE</span> PHASE 02: EVIDENCE REVIEW</div>
     <h2>Read the results. Check their limits.</h2>
     <p class="lead">Review each item before making a decision. In a real investigation, a result is only as trustworthy as the method and controls behind it.</p>
     <div class="evidence-list">
@@ -78,7 +78,7 @@ function renderQuestion() {
   const content = $("#investigation-content");
   const q = caseFiles.question;
   content.innerHTML = `
-    <div class="content-kicker"><span class="kicker-icon">✦</span> PHASE 03 — YOUR CONCLUSION</div>
+    <div class="content-kicker"><span class="kicker-icon">FIELD NOTE</span> PHASE 03: YOUR CONCLUSION</div>
     <h2>What should the investigator do next?</h2>
     <p class="lead">Select one answer. Your feedback will explain the scientific reasoning, not just mark the choice right or wrong.</p>
     <div class="question-block"><span class="evidence-tag">DECISION POINT 01</span><h3>${q.prompt}</h3><div class="answer-options">
@@ -107,9 +107,9 @@ function chooseAnswer(id) {
       state.score += 100;
       state.complete = true;
       localStorage.setItem("mq-case-001-complete", "true");
-      showToast("+100 POINTS — CASE 001 COMPLETE");
+      showToast("+100 POINTS : CASE 001 COMPLETE");
     } else {
-      showToast("CASE ALREADY COMPLETED — REVIEW THE REASONING");
+      showToast("CASE ALREADY COMPLETED : REVIEW THE REASONING");
     }
     updateScore();
     updateProgress();
