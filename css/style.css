@@ -1252,3 +1252,50 @@ button:focus-visible,a:focus-visible,[tabindex="-1"]:focus-visible{outline:2px s
 .case-card-added .case-card-index{background:#d3bf94}
 .credits-details dl>div:has(dt:first-child){ }
 @media(max-width:760px){.case-card-added,.case-card-added:nth-child(even){transform:none;margin-top:8px}.case-card-added:before{left:65%}}
+
+
+/* MICROBEQUEST 2.0 — clickable naturalist specimen cabinet */
+.hero{grid-template-columns:minmax(0,1.03fr) minmax(320px,.97fr);align-items:center;gap:clamp(28px,5vw,72px)}
+.specimen-wall{position:relative;isolation:isolate;min-height:520px;padding:22px 20px 38px;background:#1d211d;border:1px solid #8c8059;box-shadow:9px 10px 0 #c9c0a8, inset 0 0 0 7px #2d3028;overflow:hidden}
+.specimen-wall:before{content:"";position:absolute;inset:13px;border:1px dashed #a99b6e;pointer-events:none;opacity:.7}
+.specimen-wall-heading{position:relative;z-index:2;display:flex;justify-content:space-between;gap:12px;color:#d8c89a;font:9px var(--mono);letter-spacing:1px;padding:3px 3px 15px;border-bottom:1px solid #665d43}
+.specimen-photo{position:absolute;display:block;padding:0;border:5px solid #f3ead6;background:#f3ead6;color:#28291f;text-align:left;cursor:zoom-in;box-shadow:4px 6px 0 #080b08;transition:transform .2s ease,box-shadow .2s ease;z-index:2}
+.specimen-photo img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.86) contrast(1.04)}
+.specimen-photo:hover,.specimen-photo:focus-visible{z-index:5;transform:rotate(0) scale(1.06);box-shadow:8px 10px 0 #080b08}
+.specimen-photo:focus-visible{outline:3px solid #d6b969;outline-offset:4px}
+.specimen-photo-ecoli{width:53%;height:235px;top:75px;left:8%;transform:rotate(-5deg)}
+.specimen-photo-clostridium{width:42%;height:190px;top:132px;right:6%;transform:rotate(6deg)}
+.specimen-photo-campy{width:47%;height:176px;bottom:72px;left:25%;transform:rotate(-2deg)}
+.photo-label{display:block;padding:7px 2px 2px;font:8px var(--mono);letter-spacing:.4px;white-space:nowrap}
+.photo-zoom{position:absolute;right:8px;top:8px;display:grid;place-items:center;width:27px;height:27px;background:#f3ead6;color:#26352a;border:1px solid #26352a;font:20px Georgia,serif}
+.specimen-note{position:absolute;z-index:4;padding:9px 11px;background:#e7dfc8;border:1px solid #a79a72;box-shadow:3px 4px 0 #080b08;color:#3d4435;font:8px/1.65 var(--mono);letter-spacing:.25px}
+.specimen-note b{font-size:10px;color:#75443d}
+.specimen-note-left{left:5%;bottom:31px;transform:rotate(-5deg)}
+.specimen-note-right{right:5%;bottom:30px;transform:rotate(4deg);background:#e8d6c6}
+.specimen-stamp{position:absolute;z-index:5;right:12%;bottom:165px;width:83px;height:83px;border:2px double #b28d4d;border-radius:50%;display:grid;place-content:center;text-align:center;color:#d1b575;font:9px/1.6 var(--mono);letter-spacing:1px;transform:rotate(13deg);pointer-events:none}
+.specimen-attribution{position:absolute;bottom:7px;left:20px;right:20px;margin:0;color:#c8c1aa;font:8px/1.4 var(--mono)}
+.specimen-modal[hidden]{display:none}
+.specimen-modal{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:22px}
+.specimen-modal-backdrop{position:absolute;inset:0;border:0;background:#10140fdb;cursor:zoom-out}
+.specimen-modal-card{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(240px,.85fr);gap:24px;width:min(900px,100%);max-height:min(88vh,850px);overflow:auto;padding:25px;background:#f6f0df;border:2px solid #a18d5c;box-shadow:10px 12px 0 #0d100c}
+.specimen-modal-card>img{width:100%;max-height:65vh;object-fit:contain;background:#171a17;border:8px solid #e6dcc4}
+.specimen-modal-copy{align-self:center}.specimen-modal-copy h2{font:600 clamp(27px,3vw,38px) "Cormorant Garamond",Georgia,serif;line-height:1.05;margin:12px 0}.specimen-modal-copy p{font:16px/1.5 "Cormorant Garamond",Georgia,serif;color:#51594b}.specimen-credit{padding-top:12px;border-top:1px dashed #b6ac91;font:10px/1.6 var(--mono)!important}
+.specimen-modal-copy a{font:9px var(--mono);letter-spacing:.5px;color:#7c433a}.specimen-modal-close{position:absolute;right:10px;top:10px;z-index:3;width:35px;height:35px;border:1px solid #6b725f;background:#e7dfc8;color:#26352a;font-size:25px;cursor:pointer}
+.case-card{position:relative;transition:transform .18s ease,box-shadow .18s ease;cursor:pointer}.case-card:hover{transform:translateY(-3px);box-shadow:7px 8px 0 #d0cbb9}.case-card a,.case-card button{position:relative;z-index:3}.case-card:focus-within{outline:2px solid #8f514d;outline-offset:3px}
+.unit-card{cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}.unit-card:hover{transform:translateY(-3px) rotate(-.3deg);box-shadow:4px 5px 0 #d1cbb7}.unit-card:focus-visible{outline:2px solid #8f514d;outline-offset:3px}
+.unit-card:not(.unit-open){background:linear-gradient(135deg,#fffdf5,#ede8d8)}.unit-card:not(.unit-open):after{content:"OPEN FIELD NOTE ↗";display:inline-block;margin-top:7px;padding:5px 7px;border:1px dashed #9b8a5e;color:#6d5840;font:8px var(--mono);letter-spacing:.5px}
+.tour-target-active.specimen-wall,.tour-target-active.case-card,.tour-target-active.unit-card{outline:3px solid #b28d4d;outline-offset:5px;box-shadow:0 0 0 8px #b28d4d25}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.specimen-wall{width:min(100%,560px);justify-self:center;min-height:500px}.specimen-modal-card{grid-template-columns:1fr;gap:14px}.specimen-modal-card>img{max-height:42vh}.specimen-modal-copy h2{margin-right:38px}}
+@media(max-width:620px){.specimen-wall{min-height:430px;padding:18px 14px 38px}.specimen-photo-ecoli{top:73px;height:190px;width:56%;left:6%}.specimen-photo-clostridium{top:125px;height:150px;width:43%;right:4%}.specimen-photo-campy{height:135px;width:49%;bottom:77px;left:22%}.specimen-note{font-size:7px;padding:6px 7px}.specimen-stamp{width:65px;height:65px;right:8%;bottom:145px;font-size:7px}.specimen-attribution{left:14px;right:14px;font-size:7px}.specimen-modal{padding:12px}.specimen-modal-card{padding:17px}.specimen-modal-card>img{max-height:36vh}}
+@media(prefers-reduced-motion:reduce){.specimen-photo,.case-card,.unit-card{transition:none}}
+
+
+body.modal-open{overflow:hidden}
+.unit-note-popover{position:fixed;inset:0;z-index:990;display:grid;place-items:center;padding:20px}
+.unit-note-backdrop{position:absolute;inset:0;border:0;background:#172018d9;cursor:zoom-out}
+.unit-note-card{position:relative;z-index:1;width:min(520px,100%);padding:30px;background:#f6f0df;border:2px solid #a18d5c;box-shadow:8px 9px 0 #0d100c}
+.unit-note-card h2{font:600 34px/1.05 "Cormorant Garamond",Georgia,serif;margin:12px 40px 12px 0}
+.unit-note-copy{font:18px/1.5 "Cormorant Garamond",Georgia,serif;color:#51594b}
+.unit-note-footer{margin:18px 0;padding:10px 0;border-top:1px dashed #b6ac91;border-bottom:1px dashed #b6ac91;font:9px var(--mono);color:#7c433a}
+.unit-note-close{position:absolute;right:10px;top:10px;width:35px;height:35px;border:1px solid #6b725f;background:#e7dfc8;color:#26352a;font-size:25px;cursor:pointer}
+.unit-note-return{width:100%}
