@@ -1,90 +1,63 @@
-# MicrobeQuest: The Botanical Outbreak Journal
+# MicrobeQuest: The Outbreak Files
 
-**A Victorian botanical field journal for interactive investigations based on documented microbial outbreaks and public-health reports.**
+**An interactive forensic-microbiology learning experience built around documented outbreaks, scientific evidence, and public-health investigation.**
 
-MicrobeQuest turns microbiology concepts into interactive investigations. Instead of only memorising facts, learners review scientific briefings, inspect evidence, consider limitations, and choose defensible next steps.
+**Live experience:** https://microbequest-the.hatchable.site/  
+**Source repository:** https://github.com/anubhutigoswami125/MicrobeQuest
 
-> **Project status:** Early prototype. Three outbreak investigations are playable; more cases and unit links will be developed incrementally.
+MicrobeQuest is a BTY323 Microbiology course project. It frames the learner as an investigator examining outbreak records, inspecting evidence, and deciding what conclusions the available data can—and cannot—support.
 
-## Learning approach
+## Current live experience
 
-Each investigation follows three steps:
+The Hatchable deployment is the canonical, full version of MicrobeQuest. It includes:
 
-1. **Learn:** review a concise, syllabus-linked science briefing.
-2. **Investigate:** interpret observations and evaluate the reliability of evidence.
-3. **Explain:** make a decision and receive feedback about the scientific reasoning.
+- **An opening comic cutscene** that appears on every page load or refresh. It introduces the investigator role and outbreak alert.
+- **A guided site tour** highlighted by an arrow and circle after the cutscene, so first-time visitors know where to begin.
+- **Six microbiology investigation stages** mapped to the course's six units.
+- **An interactive Evidence Room** with clickable evidence, a clue board, timeline, hypothesis selection, and feedback.
+- **Documented outbreak files** linked to public-health sources, including CDC and WHO reports.
+- **Registration and consent flow**, learning-activity tracking, and an administrative analytics endpoint in the Hatchable-hosted version.
+- **Privacy and terms pages**, plus project credits and source links.
 
-## Current features
+The visual direction is a maximalist outbreak archive: aged paper, field-dossier details, forest greens, incident red, warning yellow, and layered evidence-board elements.
 
-- Victorian natural-history design with forest and fern greens, curved paper panels, botanical line art, a butterfly ornament, specimen labels, and source-linked case files.
-- Three source-linked outbreak cases: backyard poultry-associated Salmonella, Salmonella Enteritidis linked to eggs, and WHO cholera surveillance.
-- Feedback explains why an answer is or is not supported.
-- Local progress and score saved in the browser.
-- No account or server required for the current prototype.
+## Repository and hosting notes
 
-## Roadmap
+This repository also contains a static GitHub Pages edition. GitHub Pages serves static files only; it does **not** run the Hatchable API routes or database. Registration, server-side activity tracking, and admin analytics therefore depend on the Hatchable deployment and should not be assumed to work on GitHub Pages.
 
-- [x] Establish the visual design and navigation.
-- [x] Build the first interactive case and evidence review.
-- [ ] Add more decision points and branching evidence.
-- [ ] Add a simulated growth/culture experiment.
-- [x] Add three source-linked outbreak case studies.
-- [ ] Develop more cases across all six microbiology units.
-- [ ] Add a final case report that separates observations, interpretations, and limitations.
-- [ ] Test keyboard navigation, mobile layouts, legal pages, and scientific content.
-- [ ] Review privacy and terms drafts against the final deployed site before launch.
+For the latest full experience, use the [live Hatchable site](https://microbequest-the.hatchable.site/). The repository's HTML, CSS, and JavaScript provide the static project source and can be opened locally.
 
-## Syllabus map
+## Run the static version locally
 
-| Unit | Focus |
-| --- | --- |
-| I | Microbiology foundations, cell structure, microscopy |
-| II | Microbial diversity, culture media, growth phases |
-| III | Respiration, fermentation, microbial metabolism |
-| IV | Transformation, conjugation, transduction, plasmids, transposons |
-| V | Environmental microbes and microbial interactions |
-| VI | Sterilisation, disinfection, therapeutic agents, antimicrobial resistance |
+1. Clone or download this repository.
+2. Open the repository folder in VS Code.
+3. Use the Live Server extension, or another local static server, to serve `index.html`.
+4. Open the local URL in your browser. A local server is recommended so relative links and browser storage behave consistently.
 
-## Run locally
+No package installation or build step is required for the static edition.
 
-This is a static site built with HTML, CSS, and vanilla JavaScript. No package installation or build step is needed.
+## GitHub Pages deployment
 
-1. Download or clone this repository.
-2. Open `index.html` in a browser, or serve the folder with a local static server.
-3. For the best test of browser storage and relative paths, use a local server such as VS Code Live Server.
+1. Open **Settings → Pages** in this repository.
+2. Under **Build and deployment**, choose **Deploy from a branch**.
+3. Select `main` and the `/(root)` folder, then save.
+4. Wait for GitHub Pages to publish and display the site URL.
 
-## Deploy with GitHub Pages
-
-1. Open the repository's **Settings**.
-2. Select **Pages** in the sidebar.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select the `main` branch and `/(root)` folder, then save.
-5. Wait for GitHub Pages to publish the site. The URL will appear in the Pages settings.
-
-The site is designed for GitHub Pages and does not require a backend for its current features. Browser-saved progress is local to that browser and device; it is not shared across devices or users.
-
-## Privacy and terms
-
-Draft pages are provided at [`privacy.html`](privacy.html) and [`terms.html`](terms.html). They describe the current prototype and must be checked against the actual deployed configuration before launch. If analytics, forms, accounts, embedded content, or other third-party services are added, review and update the policies before releasing those features.
+GitHub Pages cannot host the Hatchable database or API endpoints. Use Hatchable for the complete hosted workflow.
 
 ## Scientific scope and disclaimer
 
-MicrobeQuest is an educational learning project, not a diagnostic tool or substitute for supervised laboratory training. Case data are simplified for teaching. In real microbiology work, results must be interpreted with appropriate methods, controls, and laboratory safety procedures.
+MicrobeQuest is an educational learning project, not a diagnostic tool or a substitute for supervised laboratory training. Case summaries are simplified for learning. Real investigations require appropriate methods, controls, biosafety procedures, and careful interpretation of the primary record.
 
-Scientific explanations will be refined as more cases are added. If you spot an error or have a suggestion, open a GitHub issue with the relevant case and claim.
+When reviewing evidence, distinguish observations from interpretations, look for corroboration across independent evidence streams, and note limitations before making a claim.
 
 ## Technology
 
-- HTML
-- CSS
-- Vanilla JavaScript
-- Browser `localStorage`
-- GitHub Pages (static hosting)
+- HTML, CSS, and vanilla JavaScript
+- GitHub Pages for the static edition
+- Hatchable hosting, API routes, and PostgreSQL-backed data for the full live experience
+- CDC and WHO public-health reports as source material
 
-## Contributing and feedback
+## Feedback
 
-Bug reports, accessibility suggestions, and science-content corrections are welcome through [GitHub Issues](https://github.com/anubhutigoswami125/MicrobeQuest/issues).
-
-## Credits
-
-Created as a student-built educational project to make microbiology more interactive and evidence-driven.
+Report a bug, accessibility issue, or scientific-content correction through [GitHub Issues](https://github.com/anubhutigoswami125/MicrobeQuest/issues).
