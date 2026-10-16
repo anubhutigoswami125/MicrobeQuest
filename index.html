@@ -35,6 +35,26 @@
           <div class="hero-footnote">FIELD RULE: distinguish published findings from interpretation.</div>
           <p class="tour-prompt">FIRST VISIT? <button class="inline-tour-link" id="hero-tour" type="button">TAKE THE SHORT TOUR ↗</button></p>
         </div>
+
+        <aside class="specimen-wall" id="specimen-wall" aria-label="Clickable microbial specimen collage">
+          <div class="specimen-wall-heading"><span>SPECIMEN CABINET / 01</span><span>CLICK TO EXAMINE ↘</span></div>
+          <button class="specimen-photo specimen-photo-ecoli" type="button" data-specimen="ecoli" aria-label="Examine Escherichia coli micrograph">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Escherichia_coli_electron_microscopy.jpg/600px-Escherichia_coli_electron_microscopy.jpg" alt="Colorized scanning electron micrograph of Escherichia coli" loading="lazy">
+            <span class="photo-label">FIG. 01 / E. COLI</span><span class="photo-zoom">＋</span>
+          </button>
+          <button class="specimen-photo specimen-photo-clostridium" type="button" data-specimen="clostridium" aria-label="Examine Clostridium difficile micrograph">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Clostridium_difficile_01.jpg" alt="Scanning electron micrograph of Clostridium difficile" loading="lazy">
+            <span class="photo-label">FIG. 02 / C. DIFFICILE</span><span class="photo-zoom">＋</span>
+          </button>
+          <button class="specimen-photo specimen-photo-campy" type="button" data-specimen="campy" aria-label="Examine Campylobacter fetus micrograph">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Campylobacter_fetus_01.jpg/1024px-Campylobacter_fetus_01.jpg" alt="Scanning electron micrograph of Campylobacter fetus" loading="lazy">
+            <span class="photo-label">FIG. 03 / CAMPYLOBACTER</span><span class="photo-zoom">＋</span>
+          </button>
+          <div class="specimen-note specimen-note-left">FIELD NOTE 07<br><b>Look closer.</b><br>Shape is a clue — not an identity.</div>
+          <div class="specimen-note specimen-note-right">ARCHIVE COPY<br><b>REAL MICROGRAPHS</b><br>Tap any specimen to inspect it.</div>
+          <div class="specimen-stamp" aria-hidden="true">OBSERVE<br>RECORD<br>QUESTION</div>
+          <p class="specimen-attribution">Image sources: Wikimedia Commons · CDC/PHIL collection. Select an image for its source and context.</p>
+        </aside>
       </section>
 
       <section class="mission-strip" aria-label="Learning loop">
@@ -155,6 +175,17 @@
         <span class="credits-seal" aria-hidden="true">FIELD<br>ARCHIVE<br><b>2026</b></span>
       </section><a class="brand footer-brand" href="index.html"><span class="brand-mark">M.</span><span><strong>MICROBEQUEST</strong><small>BOTANICAL PATHOGEN ARCHIVE</small></span></a><p>A student-built field journal for evidence-led microbiology learning.</p><nav class="footer-links" aria-label="Legal and project links"><a href="privacy.html">PRIVACY POLICY</a><a href="terms.html">TERMS &amp; CONDITIONS</a><a href="https://github.com/anubhutigoswami125/MicrobeQuest" target="_blank" rel="noreferrer">SOURCE REPOSITORY</a></nav></footer>
   </div>
+
+  <section class="specimen-modal" id="specimen-modal" role="dialog" aria-modal="true" aria-labelledby="specimen-modal-title" hidden>
+    <button class="specimen-modal-backdrop" type="button" data-close-specimen aria-label="Close specimen details"></button>
+    <div class="specimen-modal-card">
+      <button class="specimen-modal-close" type="button" data-close-specimen aria-label="Close specimen details">×</button>
+      <p class="eyebrow" id="specimen-modal-kicker">SPECIMEN RECORD / MICROGRAPH</p>
+      <img id="specimen-modal-image" alt="">
+      <div class="specimen-modal-copy"><h2 id="specimen-modal-title">Specimen title</h2><p id="specimen-modal-description"></p><p class="specimen-credit" id="specimen-modal-credit"></p><a id="specimen-modal-source" href="#" target="_blank" rel="noreferrer">OPEN ORIGINAL IMAGE RECORD ↗</a></div>
+    </div>
+  </section>
+
   <section class="tour-guide" id="tour-guide" role="region" aria-label="Website tour guide" aria-live="polite" hidden>
     <div class="tour-guide-top"><span class="tour-kicker">FIELD GUIDE / ORIENTATION</span><button type="button" class="tour-close" id="tour-close" aria-label="Close tour">×</button></div>
     <p class="tour-count" id="tour-count">STEP 1 OF 7</p>
