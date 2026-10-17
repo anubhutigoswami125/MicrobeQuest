@@ -1364,3 +1364,7 @@ body{font-size:16px;background-color:#f7f0e8;background-image:radial-gradient(#c
 .credits-name{font-size:25px}
 .tour-target-active.specimen-wall,.tour-target-active.case-card,.tour-target-active.unit-card{outline-color:#e84eb4!important;box-shadow:0 0 0 8px #e84eb42b!important}
 @media(max-width:620px){.desk-grid{grid-template-columns:1fr}.desk-artifact{min-height:170px}.tour-guide{right:14px!important;bottom:14px!important}.hero-description,.archive-intro,.section-aside,.case-card-main>p,.briefing-card p,.evidence-item p,.science-note p{font-size:16px}}
+
+
+/* Researcher avatar in the footer */
+.footer-avatar-wrap{display:flex;flex-direction:column;align-items:center;gap:9px;margin:34px auto 20px;text-align:center}.footer-avatar{display:block;width:112px;height:112px;object-fit:cover;object-position:center;border:3px solid var(--archive-gold,#b99a54);border-radius:50%;box-shadow:5px 5px 0 #d9bdd7,0 0 0 5px #30203d;background:#394e3b}.footer-avatar-wrap>span{font:10px var(--mono,monospace);letter-spacing:1.5px;color:var(--archive-gold,#b99a54)}@media(max-width:620px){.footer-avatar{width:94px;height:94px}}
