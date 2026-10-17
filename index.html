@@ -1,285 +1,150 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#263e2e">
-  <meta name="description" content="MicrobeQuest: The Outbreak Files — a botanical pathogen archive for source-based microbiology investigations.">
-  <title>MicrobeQuest: The Outbreak Files | Botanical Pathogen Archive</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/app.js" defer></script>
-  <link rel="stylesheet" href="css/outbreak-intro.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#263e2e">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>MicrobeQuest: The Outbreak Files | Botanical Pathogen Archive</title>
+<meta name="description" content="A botanical scientific archive for microbiology education, with a six-stage investigative simulation, interactive evidence room, and links to documented outbreak reports.">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="registration.css">
+<link rel="stylesheet" href="y2k.css">
+<link rel="stylesheet" href="evidence-room.css">
+<link rel="stylesheet" href="botanical-archive.css">
+<link rel="stylesheet" href="maximalist-archive.css">
+<link rel="stylesheet" href="outbreak-intro.css">
+<!-- outbreak-desk.css removed: preserve the original site styling -->
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to investigation</a>
-  <div class="desktop-shell">
-    <header class="topbar">
-      <a class="brand" href="index.html" aria-label="MicrobeQuest home">
-        <span class="brand-mark" aria-hidden="true">M.</span>
-        <span><strong>MICROBEQUEST</strong><small>FORENSIC MICROBIOLOGY</small></span>
-      </a>
-      <div class="topbar-status">FIELD NOTES <span class="topbar-divider">/</span> VOL. 01</div>
-      <button class="topbar-link tour-link" id="take-tour" type="button">TAKE A TOUR</button>
-    </header>
-
-    <main id="main">
-      <section class="hero">
-          <div class="hero-copy" id="hero-intro">
-          <p class="eyebrow">THE FORENSIC MICROBIOLOGY · VOL. I</p>
-          <h1>MICROBEQUEST:<br><span>THE OUTBREAK FILES.</span></h1>
-          <p class="hero-description">A natural-history archive of real outbreaks. Examine source-linked evidence, identify pathogens, trace epidemiological clues, and distinguish published findings from interpretation.</p>
-          <div class="hero-actions">
-            <button class="button button-primary" id="start-investigation">BEGIN INVESTIGATION</button>
-            <a class="button button-secondary" href="#field-guide">BROWSE THE FIELD GUIDE</a>
-          </div>
-          <div class="hero-footnote">FIELD RULE: distinguish published findings from interpretation.</div>
-          <p class="tour-prompt">FIRST VISIT? <button class="inline-tour-link" id="hero-tour" type="button">TAKE THE SHORT TOUR ↗</button></p>
-        </div>
-
-        <aside class="specimen-wall" id="specimen-wall" aria-label="Clickable microbial specimen collage">
-          <div class="specimen-wall-heading"><span>SPECIMEN CABINET / 01</span><span>CLICK TO EXAMINE ↘</span></div>
-          <button class="specimen-photo specimen-photo-ecoli" type="button" data-specimen="ecoli" aria-label="Examine Escherichia coli micrograph">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Escherichia_coli_electron_microscopy.jpg/600px-Escherichia_coli_electron_microscopy.jpg" alt="Colorized scanning electron micrograph of Escherichia coli" loading="lazy">
-            <span class="photo-label">FIG. 01 / E. COLI</span><span class="photo-zoom">＋</span>
-          </button>
-          <button class="specimen-photo specimen-photo-clostridium" type="button" data-specimen="clostridium" aria-label="Examine Clostridium difficile micrograph">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Clostridium_difficile_01.jpg" alt="Scanning electron micrograph of Clostridium difficile" loading="lazy">
-            <span class="photo-label">FIG. 02 / C. DIFFICILE</span><span class="photo-zoom">＋</span>
-          </button>
-          <button class="specimen-photo specimen-photo-campy" type="button" data-specimen="campy" aria-label="Examine Campylobacter fetus micrograph">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Campylobacter_fetus_01.jpg/1024px-Campylobacter_fetus_01.jpg" alt="Scanning electron micrograph of Campylobacter fetus" loading="lazy">
-            <span class="photo-label">FIG. 03 / CAMPYLOBACTER</span><span class="photo-zoom">＋</span>
-          </button>
-          <div class="specimen-note specimen-note-left">FIELD NOTE 07<br><b>Look closer.</b><br>Shape is a clue — not an identity.</div>
-          <div class="specimen-note specimen-note-right">ARCHIVE COPY<br><b>REAL MICROGRAPHS</b><br>Tap any specimen to inspect it.</div>
-          <div class="specimen-stamp" aria-hidden="true">OBSERVE<br>RECORD<br>QUESTION</div>
-          <p class="specimen-attribution">Image sources: Wikimedia Commons · CDC/PHIL collection. Select an image for its source and context.</p>
-        </aside>
-      </section>
-
-      <section class="mission-strip" aria-label="Learning loop">
-        <div><span class="strip-number">01</span><span><strong>LEARN</strong><small>Build the science</small></span></div>
-        <span class="strip-arrow" aria-hidden="true">·</span>
-        <div><span class="strip-number">02</span><span><strong>INVESTIGATE</strong><small>Read the evidence</small></span></div>
-        <span class="strip-arrow" aria-hidden="true">·</span>
-        <div><span class="strip-number">03</span><span><strong>EXPLAIN</strong><small>Defend your conclusion</small></span></div>
-      </section>
-
-      <section class="case-section" id="case-files" aria-labelledby="case-files-title">
-        <div class="section-heading">
-          <div><p class="eyebrow">THE HISTORICAL CASEBOOK</p><h2 id="case-files-title">REAL OUTBREAKS, REAL EVIDENCE<span class="heading-period">.</span></h2></div>
-          <p class="section-aside">Documented events.<br>Source-linked investigations.</p>
-        </div>
-        <p class="archive-intro">Every case begins with a published public-health investigation. The interactive questions are original teaching activities, and simplified evidence is labelled as such. Open the source record to check the original findings.</p>
-        <div class="case-archive-grid">
-          <article class="case-card case-card-archive">
-            <div class="case-card-index"><span>ARCHIVE FILE</span><strong>001</strong><span class="case-stamp">2025</span></div>
-            <div class="case-card-main">
-              <div class="case-tags"><span>SALMONELLA</span><span>ZOONOSES</span><span>CDC REPORT</span></div>
-              <h3>The Backyard Poultry Investigation</h3>
-              <p>Trace how epidemiological, laboratory, and exposure evidence linked multiple Salmonella outbreaks to contact with backyard poultry.</p>
-              <div class="case-meta"><span>CDC · 29 SEP 2025</span><span>48 STATES / MULTIPLE SEROTYPES</span></div><p class="case-geography">Coverage: United States</p>
-              <a class="source-link" href="https://www.cdc.gov/salmonella/outbreaks/mbandaka-05-01/investigation.html" target="_blank" rel="noreferrer">READ THE CDC SOURCE ↗</a>
-            </div>
-            <div class="case-card-action"><div class="case-seal">FIELD<br><small>001</small></div><button class="button button-primary" data-case-id="poultry">OPEN CASE</button><small class="case-progress" data-case-progress="poultry">NOT STARTED</small></div>
-          </article>
-          <article class="case-card case-card-archive">
-            <div class="case-card-index"><span>ARCHIVE FILE</span><strong>002</strong><span class="case-stamp">2025</span></div>
-            <div class="case-card-main">
-              <div class="case-tags"><span>S. ENTERITIDIS</span><span>FOOD SAFETY</span><span>CDC REPORT</span></div>
-              <h3>The Contaminated Egg Trail</h3>
-              <p>Follow the epidemiological, laboratory, and traceback evidence that connected an outbreak to eggs distributed by August Egg Company.</p>
-              <div class="case-meta"><span>CDC · 10 JUL 2025</span><span>10 STATES / S. ENTERITIDIS</span></div><p class="case-geography">Source trail: August Egg Company</p>
-              <a class="source-link" href="https://www.cdc.gov/salmonella/outbreaks/eggs-06-25/investigation.html" target="_blank" rel="noreferrer">READ THE CDC SOURCE ↗</a>
-            </div>
-            <div class="case-card-action"><div class="case-seal">FIELD<br><small>002</small></div><button class="button button-primary" data-case-id="eggs">OPEN CASE</button><small class="case-progress" data-case-progress="eggs">NOT STARTED</small></div>
-          </article>
-          <article class="case-card case-card-archive">
-            <div class="case-card-index"><span>ARCHIVE FILE</span><strong>003</strong><span class="case-stamp">2025</span></div>
-            <div class="case-card-main">
-              <div class="case-tags"><span>CHOLERA</span><span>SURVEILLANCE</span><span>WHO REPORT</span></div>
-              <h3>The Cholera Surveillance Ledger</h3>
-              <p>Interpret a WHO multi-country situation report and distinguish what surveillance totals show from what they cannot prove about individual transmission routes.</p>
-              <div class="case-meta"><span>WHO · 28 AUG 2025</span><span>31 COUNTRIES / CHOLERA</span></div><p class="case-geography">Coverage: multi-country surveillance</p>
-              <a class="source-link" href="https://www.who.int/publications/m/item/multi-country-outbreak-of-cholera--external-situation-report--29--28-august-2025" target="_blank" rel="noreferrer">READ THE WHO SOURCE ↗</a>
-            </div>
-            <div class="case-card-action"><div class="case-seal">FIELD<br><small>003</small></div><button class="button button-primary" data-case-id="cholera">OPEN CASE</button><small class="case-progress" data-case-progress="cholera">NOT STARTED</small></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="investigation hidden" id="investigation" aria-labelledby="investigation-title">
-        <div class="investigation-topline"><span class="eyebrow">CASE 001 / ACTIVE INVESTIGATION</span><button class="text-button" id="close-case">← BACK TO CASE FILES</button></div>
-        <div class="investigation-grid">
-          <aside class="case-sidebar">
-            <p class="sidebar-label">CASE PROTOCOL</p>
-            <h3 id="investigation-title">The Mystery of the Missing Cell Wall</h3>
-            <div class="protocol-step active"><span>01</span><div><strong>SCIENCE BRIEFING</strong><small>Review the basics</small></div></div>
-            <div class="protocol-step"><span>02</span><div><strong>READ THE EVIDENCE</strong><small>Observe before deciding</small></div></div>
-            <div class="protocol-step"><span>03</span><div><strong>YOUR CONCLUSION</strong><small>Explain your reasoning</small></div></div>
-            <div class="sidebar-score"><small>INVESTIGATION SCORE</small><strong id="score">000</strong><span>POINTS</span></div>
-          </aside>
-          <div class="investigation-content" id="investigation-content" tabindex="-1">
-            <div class="content-kicker"><span class="kicker-icon">FIELD NOTE 01</span> PHASE 01: SCIENCE BRIEFING</div>
-            <h2>First, know what you're looking at.</h2>
-            <p class="lead">A stain is a clue, not a complete identity. Let's review the structures that help microbiologists interpret a cell.</p>
-            <div class="briefing-grid">
-              <article class="briefing-card"><div class="briefing-symbol symbol-membrane">CELL</div><h3>Cell membrane</h3><p>A selectively permeable boundary that regulates movement of substances into and out of the cell. Both bacteria and archaea have cell membranes, though their membrane chemistry differs.</p></article>
-              <article class="briefing-card"><div class="briefing-symbol symbol-wall">WALL</div><h3>Cell wall</h3><p>Provides structural support and helps resist osmotic pressure in many microbes. Bacterial walls commonly contain peptidoglycan; not every microbe has a cell wall.</p></article>
-              <article class="briefing-card"><div class="briefing-symbol symbol-stain">GRAM</div><h3>Gram staining</h3><p>Separates many bacteria into Gram-positive and Gram-negative groups based on cell-envelope properties and stain retention. It does not identify a species by itself.</p></article>
-            </div>
-            <div class="science-note"><span class="note-icon">i</span><p><strong>SCIENTIFIC CAUTION</strong><br>A Gram-stain result can be affected by culture age, sample quality, and staining technique. Never infer more than the method supports.</p></div>
-            <div class="content-footer"><span>BRIEFING 01 / 03</span><button class="button button-primary" id="to-evidence">BRIEFING COMPLETE: VIEW EVIDENCE →</button></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="field-guide" id="field-guide">
-        <div class="field-guide-header"><p class="eyebrow">THE MICROBIOLOGY MAP</p><h2>SIX UNITS. ONE SCIENTIFIC MINDSET<span class="heading-period">.</span></h2><p>Each case is designed to connect course concepts to the kind of reasoning a working microbiologist uses.</p></div>
-        <div class="unit-grid">
-          <article class="unit-card unit-open"><span class="unit-id">UNIT 01 / FOUNDATIONS</span><span class="unit-glyph" aria-hidden="true">01</span><h3>Cells &amp; Microscopy</h3><p>Cell structures, staining, and the limits of observation.</p><span class="unit-state">CASE AVAILABLE</span></article>
-          <article class="unit-card"><span class="unit-id">UNIT 02 / DIVERSITY</span><span class="unit-glyph" aria-hidden="true">02</span><h3>Growth &amp; Culture</h3><p>Microbial diversity, culture media, and growth phases.</p><span class="unit-state">IN DEVELOPMENT</span></article>
-          <article class="unit-card"><span class="unit-id">UNIT 03 / METABOLISM</span><span class="unit-glyph" aria-hidden="true">03</span><h3>Energy &amp; Fermentation</h3><p>Respiration, fermentation, and the ED pathway.</p><span class="unit-state">IN DEVELOPMENT</span></article>
-          <article class="unit-card"><span class="unit-id">UNIT 04 / GENETICS</span><span class="unit-glyph" aria-hidden="true">04</span><h3>Microbial Genetics</h3><p>Gene transfer, plasmids, and genetic variation.</p><span class="unit-state">IN DEVELOPMENT</span></article>
-          <article class="unit-card"><span class="unit-id">UNIT 05 / ECOLOGY</span><span class="unit-glyph" aria-hidden="true">05</span><h3>Microbes in Ecosystems</h3><p>Environmental microbes and biological interactions.</p><span class="unit-state">IN DEVELOPMENT</span></article>
-          <article class="unit-card"><span class="unit-id">UNIT 06 / CONTROL</span><span class="unit-glyph" aria-hidden="true">06</span><h3>Control &amp; Resistance</h3><p>Sterilization, antimicrobials, and resistance.</p><span class="unit-state">IN DEVELOPMENT</span></article>
-        </div>
-      </section>
-
-      <section class="principles">
-        <div><p class="eyebrow">LAB RULE NO. 01</p><h2>OBSERVATION IS NOT<br>THE SAME AS <span>PROOF.</span></h2></div>
-        <p>MicrobeQuest rewards the process, not just the answer. You will be asked what you observed, what it might mean, and what additional test could distinguish competing explanations.</p>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <section class="credits-panel" aria-labelledby="credits-heading">
-        <div class="credits-heading">
-          <p class="eyebrow">PROJECT COLOPHON / RESEARCHER RECORD</p>
-          <h2 id="credits-heading">About This Project</h2>
-          <p>MicrobeQuest: The Outbreak Files is an academic assignment and a personal passion project exploring agentic AI coding, interactive scientific storytelling, and microbiology education. It combines real-world outbreak research with evidence-based investigative gameplay.</p>
-          <nav class="project-source-links" aria-label="Project references"><a href="https://www.cdc.gov/salmonella/outbreaks/mbandaka-05-01/investigation.html" target="_blank" rel="noreferrer">CDC · Backyard poultry ↗</a><a href="https://www.cdc.gov/salmonella/outbreaks/eggs-06-25/investigation.html" target="_blank" rel="noreferrer">CDC · Egg outbreak ↗</a><a href="https://www.who.int/publications/m/item/multi-country-outbreak-of-cholera--external-situation-report--29--28-august-2025" target="_blank" rel="noreferrer">WHO · Cholera report ↗</a><a href="https://github.com/anubhutigoswami125/MicrobeQuest" target="_blank" rel="noreferrer">Project source code ↗</a></nav>
-        </div>
-        <div class="credits-details">
-          <p class="credits-name">Anubhuti Goswami</p>
-          <dl>
-            
-            <div><dt>Institution</dt><dd>Lovely Professional University (LPU)</dd></div>
-            <div><dt>Programme</dt><dd>B.Tech Biotechnology</dd></div>
-            <div><dt>Email</dt><dd><a href="mailto:anubhutiworkk@gmail.com">anubhutiworkk@gmail.com</a></dd></div>
-            <div><dt>GitHub</dt><dd><a href="https://github.com/anubhutigoswami125" target="_blank" rel="noreferrer">github.com/anubhutigoswami125 ↗</a></dd></div>
-            <div><dt>Portfolio</dt><dd><a href="https://anubhutigoswami125.github.io/" target="_blank" rel="noreferrer">Open my portfolio ↗</a></dd></div>
-            <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/anubhuti-goswami-b6382137b/" target="_blank" rel="noreferrer">linkedin.com/in/anubhuti-goswami-b6382137b ↗</a></dd></div>
-          </dl>
-        </div>
-        <span class="credits-seal" aria-hidden="true">FIELD<br>ARCHIVE<br><b>2026</b></span>
-      </section><div class="footer-avatar-wrap"><img class="footer-avatar" src="https://i.pinimg.com/736x/ee/dd/cd/eeddcdb46f9b87b65ce4bc10934b0d46.jpg" alt="Anubhuti’s avatar" loading="lazy"><span>THE RESEARCHER</span></div><a class="brand footer-brand" href="index.html"><span class="brand-mark">M.</span><span><strong>MICROBEQUEST</strong><small>FORENSIC MICROBIOLOGY</small></span></a><p>A student-built field journal for evidence-led microbiology learning.</p><nav class="footer-links" aria-label="Legal and project links"><a href="privacy.html">PRIVACY POLICY</a><a href="terms.html">TERMS &amp; CONDITIONS</a><a href="https://github.com/anubhutigoswami125/MicrobeQuest" target="_blank" rel="noreferrer">SOURCE REPOSITORY</a></nav></footer>
+<canvas id="cellField" aria-hidden="true"></canvas>
+<div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="MicrobeQuest home"><span class="brand-mark">M<span>Q</span></span><span class="brand-copy">MICROBEQUEST <small>FORENSIC MICROBIOLOGY</small></span></a>
+  <div class="topbar-actions"><div class="top-meta">BTY323 / MICROBIOLOGY COURSE PROJECT</div><button class="tour-launch" id="takeTour" type="button">Take a tour</button><button class="btn btn-quiet top-register" id="registerNavBtn" type="button">Register <span aria-hidden="true">↗</span></button></div>
+</header>
+<main id="app">
+  <section class="hero" id="hero">
+    <div class="hero-copy">
+      <div class="eyebrow"><span class="eyebrow-line"></span> INCIDENT RESPONSE ARCHIVE / CASE FILE 001</div>
+      <h1>MicrobeQuest:<br><em>The Outbreak Files.</em></h1>
+      <p class="hero-sub">Outbreak files. Contaminated evidence. No conclusions without proof.</p>
+      <p class="hero-body">Work through six guided investigation stages spanning cell structure, microbial diversity and growth, metabolism, genetics, ecology, and microbial control. Inspect evidence, compare hypotheses, reconstruct the case timeline, and check the limits of each conclusion.</p>
+      <div class="hero-actions"><button class="btn btn-primary" id="startBtn">Begin investigation <span aria-hidden="true">→</span></button><button class="btn btn-quiet hero-register" id="registerHeroBtn" type="button">Register <span aria-hidden="true">↗</span></button><button class="tour-inline" id="heroTour" type="button">First visit? Take the tour</button><span class="read-time">6 stages / 6 BTY323 units</span></div>
+      <div class="disclaimer">The interactive hospital scenario is a fictional teaching simulation, not a real outbreak report. Use the linked primary sources in the archive notes for documented outbreak examples.</div>
+    </div>
+    <div class="microbe-collage" aria-label="Scrapbook collage of real microbial micrographs">
+      <div class="ink-circle" aria-hidden="true"></div>
+      <a class="microbe-polaroid microbe-one" href="https://phil.cdc.gov/Details.aspx?pid=10975" target="_blank" rel="noopener noreferrer" aria-label="Open CDC Salmonella micrograph and image credits"><img src="https://phil.cdc.gov/PHIL_Images/10975/10975_lores.jpg" alt="Colorized scanning electron micrograph of clustered Salmonella Typhimurium, CDC PHIL 10975"><span>SPECIMEN 01 / SALMONELLA</span></a>
+      <a class="microbe-polaroid microbe-two" href="https://phil.cdc.gov/Details.aspx?pid=15194" target="_blank" rel="noopener noreferrer" aria-label="Open CDC rotavirus micrograph and image credits"><img src="https://phil.cdc.gov/PHIL_Images/15194/15194_lores.jpg" alt="Transmission electron micrograph of rotavirus particles, CDC PHIL 15194"><span>VIRAL PARTICLES / ROTAVIRUS</span></a>
+      <a class="microbe-polaroid microbe-three" href="https://phil.cdc.gov/Details.aspx?pid=10071" target="_blank" rel="noopener noreferrer" aria-label="Open CDC E. coli micrograph and image credits"><img src="https://phil.cdc.gov/PHIL_Images/10071/10071_lores.jpg" alt="Colorized scanning electron micrograph of Escherichia coli, CDC PHIL 10071"><span>E. COLI / FIELD SAMPLE</span></a>
+      <a class="microbe-stamp" href="#documented-outbreaks" aria-label="Jump to documented outbreak files">RESTRICTED<br>ACCESS</a>
+      <a class="microbe-warning" href="#documented-outbreaks">⚠ WARNING: CELL WALL INTEGRITY FAILING!</a>
+      <span class="microbe-arrow arrow-a" aria-hidden="true">↘</span><span class="microbe-arrow arrow-b" aria-hidden="true">⤷</span>
+      <span class="microbe-caption">MICROGRAPH COLLAGE<br>CDC PHIL / PUBLIC-HEALTH IMAGE LIBRARY</span>
+    </div>
+  </section>
+  <section id="registrationModal" class="registration-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="registrationTitle">
+    <div class="registration-panel">
+      <button class="registration-close" id="closeRegistration" type="button" aria-label="Close registration">×</button>
+      <div class="credits-kicker">BEFORE YOU BEGIN / MQ-001</div>
+      <h2 id="registrationTitle">Register as an investigator.</h2>
+      <p class="registration-intro">Save your participation and learning progress for this educational project. Please use your own details, not patient or clinical information.</p>
+      <form id="registrationForm">
+        <label for="regName">Full name</label>
+        <input id="regName" name="full_name" type="text" autocomplete="name" maxlength="100" required>
+        <label for="regEmail">Email address</label>
+        <input id="regEmail" name="email" type="email" autocomplete="email" maxlength="254" required>
+        <label for="regProgramme">Course / programme</label>
+        <input id="regProgramme" name="programme" type="text" maxlength="120" placeholder="e.g. B.Tech Biotechnology" required>
+        <label for="regInstitution">Institution <span>(optional)</span></label>
+        <input id="regInstitution" name="institution" type="text" maxlength="160" autocomplete="organization">
+        <label for="regYear">Year of study</label>
+        <select id="regYear" name="study_year" required>
+          <option value="">Choose your year</option><option>1st year</option><option>2nd year</option><option>3rd year</option><option>4th year</option><option>Other</option>
+        </select>
+        <label class="consent-row"><input id="regConsent" name="consent" type="checkbox" required><span>I agree to store my registration details and learning progress in this browser for educational use. This GitHub Pages version does not send registration data to the project owner. I have read the <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.</span></label>
+        <div class="registration-trap" aria-hidden="true"><label for="regWebsite">Leave this field empty</label><input id="regWebsite" name="website" tabindex="-1" autocomplete="off"></div>
+        <p id="registrationStatus" class="registration-status" role="status"></p>
+        <button class="btn btn-primary registration-submit" id="registrationSubmit" type="submit">Save registration & begin →</button>
+      </form>
+      <p class="registration-footnote">Do not submit health details, patient information, or anything confidential.</p>
+    </div>
+  </section>
+  <section class="unit-strip" aria-label="Six syllabus units">
+    <div class="strip-head"><span>YOUR INVESTIGATION</span><span>BTY323 · UNITS I TO VI</span></div>
+    <div class="unit-list">
+      <div class="unit-chip"><span>I</span><b>Cell structure</b></div><div class="unit-chip"><span>II</span><b>Diversity & growth</b></div><div class="unit-chip"><span>III</span><b>Metabolism</b></div><div class="unit-chip"><span>IV</span><b>Genetics</b></div><div class="unit-chip"><span>V</span><b>Ecology</b></div><div class="unit-chip"><span>VI</span><b>Microbial control</b></div>
+    </div>
+  </section>
+  <section class="outbreak-archive" id="documented-outbreaks" aria-labelledby="outbreak-archive-title">
+    <div class="outbreak-heading"><div><p class="eyebrow">DOCUMENTED OUTBREAK RECORDS / PRIMARY SOURCES</p><h2 id="outbreak-archive-title">The public-health casebook.</h2></div><p>Real reports for comparative reading. These records are distinct from the fictional six-stage teaching simulation below.</p></div>
+    <div class="outbreak-grid">
+      <article class="outbreak-card"><div class="outbreak-card-head"><span>ARCHIVE FILE 001</span><span>CDC · 29 SEP 2025</span></div><p class="outbreak-tag">SALMONELLA / ZOONOTIC EXPOSURE</p><h3>The Backyard Poultry Investigation</h3><p>The CDC reported 559 people infected across 48 states in investigations involving multiple Salmonella serotypes. Epidemiological, laboratory, and traceback evidence linked the outbreaks to contact with backyard poultry.</p><p class="outbreak-meta">LOCATION · UNITED STATES<br>RECORD TYPE · INVESTIGATION UPDATE</p><a class="outbreak-link" href="https://www.cdc.gov/salmonella/outbreaks/mbandaka-05-01/investigation.html" target="_blank" rel="noopener noreferrer">READ THE CDC REPORT ↗</a></article>
+      <article class="outbreak-card"><div class="outbreak-card-head"><span>ARCHIVE FILE 002</span><span>CDC · 10 JUL 2025</span></div><p class="outbreak-tag">S. ENTERITIDIS / FOOD SAFETY</p><h3>The Contaminated Egg Trail</h3><p>The CDC reported 134 infections across 10 states. Its investigation connected the outbreak to Salmonella Enteritidis in eggs distributed by August Egg Company, using epidemiological, laboratory, and traceback findings.</p><p class="outbreak-meta">LOCATION · UNITED STATES<br>RECORD TYPE · FOODBORNE OUTBREAK</p><a class="outbreak-link" href="https://www.cdc.gov/salmonella/outbreaks/eggs-06-25/investigation.html" target="_blank" rel="noopener noreferrer">READ THE CDC REPORT ↗</a></article>
+      <article class="outbreak-card"><div class="outbreak-card-head"><span>ARCHIVE FILE 003</span><span>WHO · 28 AUG 2025</span></div><p class="outbreak-tag">CHOLERA / SURVEILLANCE</p><h3>The Cholera Surveillance Ledger</h3><p>WHO recorded 382,718 reported cholera cases and 4,478 reported deaths across 31 countries from 1 January to 27 July 2025. Multi-country surveillance totals describe reported burden; they do not establish one shared exposure or capture every infection.</p><p class="outbreak-meta">LOCATION · MULTI-COUNTRY<br>RECORD TYPE · SITUATION REPORT 29</p><a class="outbreak-link" href="https://www.who.int/publications/m/item/multi-country-outbreak-of-cholera--external-situation-report--29--28-august-2025" target="_blank" rel="noopener noreferrer">READ THE WHO REPORT ↗</a></article>
+    </div>
+  </section>
+  <section id="game" class="game hidden" aria-live="polite">
+    <div class="game-top"><div><div class="eyebrow"><span class="eyebrow-line"></span> ACTIVE INVESTIGATION</div><h2 id="stageTitle">Case briefing</h2></div><div class="progress-box"><span id="progressText">STAGE 01 / 06</span><div class="progress-track"><div id="progressFill"></div></div></div></div>
+    <div class="game-layout">
+      <aside class="case-sidebar">
+        <div class="sidebar-label">CASE MQ-001</div><div class="case-status"><span class="live-dot"></span> OPEN / SIMULATED</div>
+        <div class="sidebar-rule"></div><div class="sidebar-label">INVESTIGATOR</div><div class="investigator">Lead microbiologist</div>
+        <div class="sidebar-rule"></div><div class="sidebar-label">EVIDENCE LOG</div><div id="evidenceLog" class="evidence-log"><div class="empty-log">Your verified clues<br>will appear here.</div></div>
+        <div class="score-card"><span>REASONING SCORE</span><strong id="scoreValue">000</strong><small>POINTS</small></div>
+      </aside>
+      <div class="stage-panel">
+        <div class="stage-meta"><span id="unitTag">UNIT I · CELL STRUCTURE</span><span id="clueTag">EVIDENCE 01</span></div>
+        <h3 id="questionTitle"></h3><p id="questionText" class="question-text"></p>
+        <div id="evidenceCard" class="evidence-card"></div>
+        <div id="choices" class="choices"></div>
+        <div id="feedback" class="feedback hidden" role="status"></div>
+        <div class="stage-controls"><button id="hintBtn" class="btn btn-quiet">Reveal a hint <span>↗</span></button><button id="nextBtn" class="btn btn-primary hidden">Next evidence <span>→</span></button></div>
+        <div id="hintText" class="hint-text hidden"></div>
+      </div>
+    </div>
+    <section id="evidenceRoom" class="evidence-room hidden" aria-label="Interactive Evidence Room"></section>
+  </section>
+  <section class="method-note"><div><b>Evidence before certainty.</b><p>Real microbiology depends on validated methods, controls, context, and multiple lines of evidence. This game models that reasoning, not a real clinical workflow.</p></div><span class="method-code">MQ / ETHICS 01</span></section>
+</main>
+<footer><span>MICROBEQUEST <i>·</i> BTY323 MICROBIOLOGY</span><span><a href="privacy.html">Privacy policy</a> <i>·</i> <a href="terms.html">Terms and conditions</a></span></footer>
+<section class="credits" aria-labelledby="creditsTitle">
+ <div class="credits-kicker">PROJECT COLOPHON / RESEARCHER RECORD</div>
+ <h2 id="creditsTitle">About This Project</h2>
+ <p class="credits-project-note">MicrobeQuest: The Outbreak Files is an academic assignment and a personal passion project exploring agentic AI coding, interactive scientific storytelling, and microbiology education. It combines a fictional teaching simulation with evidence-led investigative gameplay and links to primary public-health reading.</p>
+ <p class="credits-byline">Anubhuti Goswami <span>·</span> BTY323 <span>·</span> B.Tech Biotechnology</p>
+ <div class="credits-details">
+  <div><span>UNIVERSITY</span><strong>Lovely Professional University (LPU)</strong></div>
+  <div><span>DEGREE</span><strong>B.Tech Biotechnology</strong></div>
+  <div><span>SCHOOL</span><strong>School of Bioengineering and Biosciences</strong></div>
+  <div><span>EMAIL</span><strong><a href="mailto:anubhutiworkk@gmail.com">anubhutiworkk@gmail.com</a></strong></div>
+  <div><span>LINKEDIN</span><strong><a href="https://linkedin.com/in/anubhuti-goswami-b6382137b" target="_blank" rel="noopener noreferrer">linkedin.com/in/anubhuti-goswami-b6382137b</a></strong></div>
+  <div><span>GITHUB</span><strong><a href="https://github.com/anubhutigoswami125" target="_blank" rel="noopener noreferrer">github.com/anubhutigoswami125</a></strong></div>
+  <div class="portfolio-detail"><span>PORTFOLIO</span><strong><a href="https://anubhutigoswami125.github.io/" target="_blank" rel="noopener noreferrer">anubhutigoswami125.github.io ↗</a></strong></div>
   </div>
-
-  <section class="specimen-modal" id="specimen-modal" role="dialog" aria-modal="true" aria-labelledby="specimen-modal-title" hidden>
-    <button class="specimen-modal-backdrop" type="button" data-close-specimen aria-label="Close specimen details"></button>
-    <div class="specimen-modal-card">
-      <button class="specimen-modal-close" type="button" data-close-specimen aria-label="Close specimen details">×</button>
-      <p class="eyebrow" id="specimen-modal-kicker">SPECIMEN RECORD / MICROGRAPH</p>
-      <img id="specimen-modal-image" alt="">
-      <div class="specimen-modal-copy"><h2 id="specimen-modal-title">Specimen title</h2><p id="specimen-modal-description"></p><p class="specimen-credit" id="specimen-modal-credit"></p><a id="specimen-modal-source" href="#" target="_blank" rel="noreferrer">OPEN ORIGINAL IMAGE RECORD ↗</a></div>
+ <nav class="credits-sources" aria-label="Primary-source reading"><span>DOCUMENTED OUTBREAK READING</span><a href="https://www.cdc.gov/salmonella/outbreaks/mbandaka-05-01/investigation.html" target="_blank" rel="noopener noreferrer">CDC · Backyard poultry Salmonella investigation ↗</a><a href="https://www.cdc.gov/salmonella/outbreaks/eggs-06-25/investigation.html" target="_blank" rel="noopener noreferrer">CDC · Salmonella Enteritidis egg outbreak ↗</a><a href="https://www.who.int/publications/m/item/multi-country-outbreak-of-cholera--external-situation-report--29--28-august-2025" target="_blank" rel="noopener noreferrer">WHO · Multi-country cholera situation report ↗</a><a href="https://github.com/anubhutigoswami125/MicrobeQuest" target="_blank" rel="noopener noreferrer">Project repository ↗</a></nav>
+<div class="researcher-avatar-wrap"><img class="researcher-avatar" src="https://i.pinimg.com/736x/ee/dd/cd/eeddcdb46f9b87b65ce4bc10934b0d46.jpg" alt="Anubhuti Goswami" loading="lazy"><span>THE RESEARCHER · FIELD ARCHIVE 2026</span></div>
+</section>
+<section id="outbreakIntro" class="outbreak-intro" role="dialog" aria-modal="true" aria-labelledby="introHeading" hidden>
+  <div class="intro-paper">
+    <div class="intro-masthead"><span>EMERGENCY BULLETIN</span><span>FIELD DISPATCH 001 / RESTRICTED</span></div>
+    <div class="intro-comic-label">THE OUTBREAK FILES PRESENT</div>
+    <h2 id="introHeading">A NEW INCIDENT HAS BEEN REPORTED.</h2>
+    <div class="intro-panels" id="introPanels">
+      <article class="intro-panel"><div class="intro-panel-art art-alert"><span class="art-stamp">BREAKING</span><span class="art-siren">!</span><span class="art-caption">PUBLIC HEALTH ALERT</span></div><p class="speech">“Multiple unexplained cases. The source is unknown.”</p><small>PANEL 01 / THE ALERT</small></article>
+      <article class="intro-panel"><div class="intro-panel-art art-zone"><span class="zone-tape">RESTRICTED ZONE</span><span class="zone-marker">!</span><span class="zone-lines">/////</span></div><p class="speech">“The area is secured. Evidence must be examined before conclusions are drawn.”</p><small>PANEL 02 / THE SCENE</small></article>
+      <article class="intro-panel"><div class="intro-panel-art art-investigator"><span class="investigator-badge">FIELD<br>UNIT</span><span class="investigator-silhouette">●<br>╱│╲<br>╱ ╲</span><span class="file-tag">CASE FILE 001</span></div><p class="speech">“You’re the investigator. Follow the evidence, test your microbiology knowledge, and piece the case together.”</p><small>PANEL 03 / YOUR ASSIGNMENT</small></article>
     </div>
-  </section>
-
-  <section class="tour-guide" id="tour-guide" role="region" aria-label="Website tour guide" aria-live="polite" hidden>
-    <div class="tour-guide-top"><span class="tour-kicker">FIELD GUIDE / ORIENTATION</span><button type="button" class="tour-close" id="tour-close" aria-label="Close tour">×</button></div>
-    <p class="tour-count" id="tour-count">STEP 1 OF 7</p>
-    <h2 id="tour-title">Welcome to MicrobeQuest</h2>
-    <p id="tour-copy">Explore documented outbreaks through source-based evidence and scientific reasoning.</p>
-    <div class="tour-progress" aria-hidden="true"><span id="tour-progress-bar"></span></div>
-    <div class="tour-controls"><button type="button" class="tour-control tour-back" id="tour-back">BACK</button><button type="button" class="tour-skip" id="tour-skip">SKIP TOUR</button><button type="button" class="tour-control tour-next" id="tour-next">NEXT →</button></div>
-  </section>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<script>
-window.addEventListener("DOMContentLoaded", function(){
-  (function(){
-    const panel=document.getElementById("tour-guide");
-    if(!panel || panel.dataset.robustTour==="ready") return;
-    panel.dataset.robustTour="ready";
-    document.body.appendChild(panel);
-    const ids=["take-tour","hero-tour","tour-next","tour-back","tour-skip","tour-close"];
-    ids.forEach(function(id){const old=document.getElementById(id);if(old){const fresh=old.cloneNode(true);old.replaceWith(fresh);}});
-    const byId=id=>document.getElementById(id);
-    const steps=[
-      {target:"#hero-intro",title:"Welcome to MicrobeQuest",copy:"Explore real outbreak reports through an interactive, source-based microbiology archive. The case questions are learning activities; follow the primary sources to verify claims."},
-      {target:"#specimen-wall",title:"Inspect the specimen cabinet",copy:"Click the microbial photographs to enlarge them, read context, and open their original image records. Shape is a clue—not proof of identity."},
-      {target:"#case-files",title:"Choose an archive file",copy:"Each case card is interactive. Open a file to inspect its briefing, review the evidence, and form a conclusion."},
-      {target:'[data-case-id="poultry"]',title:"Open a case",copy:"Select a case file. You can return to the archive at any time.",action:function(){if(typeof window.openCase==="function")window.openCase("poultry");else byId("start-investigation")?.click();}},
-      {target:"#investigation-content",title:"Read the briefing",copy:"Start with the source context. Ask what investigators reported and what the report can—and cannot—establish.",action:function(){byId("to-evidence")?.click();}},
-      {target:".investigation-desk",title:"Explore the evidence desk",copy:"Open the schematic evidence map, the source clipping, the primary document, and individual pinned clues. These are interactive detail views.",action:function(){if(!document.querySelector(".investigation-desk"))byId("to-evidence")?.click();}},
-      {target:".question-block",title:"Test your interpretation",copy:"Choose the conclusion that best fits the evidence. Read the feedback and check the original source." ,action:function(){byId("to-conclusion")?.click();}},
-      {target:"#score",title:"Score and continue",copy:"A supported conclusion earns points once per case. Review the feedback, then investigate another outbreak."}
-    ];
-    let index=0,target=null;
-    function clear(){if(target){target.classList.remove("tour-target-active");target.removeAttribute("aria-describedby");target=null;}}
-    function render(next){
-      clear();index=Math.max(0,Math.min(next,steps.length-1));
-      const step=steps[index];target=document.querySelector(step.target)||document.querySelector("#main");
-      if(target){target.classList.add("tour-target-active");target.setAttribute("aria-describedby","tour-guide");}
-      panel.hidden=false;
-      panel.style.left="";panel.style.top="";panel.style.right="";panel.style.bottom="";
-      byId("tour-count").textContent="STEP "+(index+1)+" OF "+steps.length;
-      byId("tour-title").textContent=step.title;byId("tour-copy").textContent=step.copy;
-      byId("tour-progress-bar").style.width=((index+1)/steps.length*100)+"%";
-      byId("tour-back").disabled=index===0;byId("tour-next").textContent=index===steps.length-1?"FINISH":"NEXT →";
-      if(target)target.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"});
-    }
-    function end(done){clear();panel.hidden=true;if(done){try{localStorage.setItem("mq-tour-complete","true")}catch(e){}}}
-    function start(){render(0);}
-    byId("take-tour")?.addEventListener("click",start);
-    byId("hero-tour")?.addEventListener("click",start);
-    byId("tour-next")?.addEventListener("click",function(){const step=steps[index];if(step.action)step.action();if(index===steps.length-1){end(true);return;}render(index+1);});
-    byId("tour-back")?.addEventListener("click",function(){if(index>0)render(index-1);});
-    byId("tour-skip")?.addEventListener("click",function(){end(false);});
-    byId("tour-close")?.addEventListener("click",function(){end(false);});
-    document.addEventListener("keydown",function(event){if(panel.hidden)return;if(event.key==="Escape")end(false);if(event.key==="ArrowRight")byId("tour-next")?.click();if(event.key==="ArrowLeft"&&index>0)render(index-1);});
-  })();
-});
-</script>
-
-  <section class="outbreak-intro" id="outbreak-intro" role="dialog" aria-modal="true" aria-labelledby="outbreak-intro-title">
-    <div class="intro-comic">
-      <div class="intro-comic-header"><span>MICROBEQUEST / INCIDENT ALERT</span><span>FILE 000</span></div>
-      <div class="intro-panel" data-intro-panel="0">
-        <p class="intro-eyebrow">BREAKING FIELD NOTICE</p>
-        <h2 id="outbreak-intro-title">AN OUTBREAK HAS BEGUN.</h2>
-        <p>Unusual cases are being reported. The evidence is incomplete, and the source of the outbreak is not yet confirmed.</p>
-        <div class="comic-stamp">ALERT<br>ACTIVE</div>
-      </div>
-      <div class="intro-panel" data-intro-panel="1" hidden>
-        <p class="intro-eyebrow">RESTRICTED INVESTIGATION ZONE</p>
-        <h2>EVERY CLUE MATTERS.</h2>
-        <p>Read the reports. Inspect the evidence. Compare what investigators observed with what the evidence actually supports.</p>
-        <div class="comic-stamp">EVIDENCE<br>INCOMPLETE</div>
-      </div>
-      <div class="intro-panel" data-intro-panel="2" hidden>
-        <p class="intro-eyebrow">INVESTIGATOR ASSIGNMENT</p>
-        <h2>YOU'RE ON THE CASE.</h2>
-        <p>Your task is to investigate the outbreak without jumping to conclusions. Start with the guided tour to learn how the archive works.</p>
-        <div class="comic-stamp">CASE<br>ASSIGNED</div>
-      </div>
-      <div class="intro-footer">
-        <span class="intro-step" id="intro-step">PANEL 1 / 3</span>
-        <div class="intro-actions">
-          <button type="button" id="intro-skip">SKIP INTRO</button>
-          <button type="button" id="intro-next">NEXT PANEL →</button>
-        </div>
-      </div>
-    </div>
-  </section>
-  <aside class="tour-nudge" id="tour-nudge" hidden aria-live="polite">
-    <span class="tour-nudge-arrow" aria-hidden="true">↘</span>
-    <p><strong>NEW INVESTIGATOR?</strong><br>Start here. Take the guided tour to learn how to investigate the files.</p>
-    <button type="button" id="tour-nudge-start">TAKE THE TOUR ↗</button>
-    <button type="button" class="tour-nudge-dismiss" id="tour-nudge-dismiss" aria-label="Dismiss tour prompt">×</button>
-  </aside>
-
-  <script src="js/outbreak-intro.js" defer></script>
+    <div class="intro-bottom"><span>NO GUESSWORK. NO CONCLUSIONS WITHOUT EVIDENCE.</span><div><button id="introSkip" type="button">SKIP INTRO</button><button id="introContinue" type="button">SHOW ME THE SITE TOUR →</button></div></div>
+  </div>
+</section>
+<div id="tourNudge" class="tour-nudge" hidden><div class="tour-nudge-copy"><strong>NEW INVESTIGATOR?</strong><span>START HERE — take the guided tour.</span></div><svg class="tour-nudge-arrow" viewBox="0 0 110 74" aria-hidden="true"><path d="M104 8 C76 2 58 16 49 35 S25 57 9 57 M9 57 L24 46 M9 57 L24 66" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square"/></svg><button type="button" id="nudgeDismiss" aria-label="Dismiss tour prompt">×</button></div>
+<section class="tour-guide" id="botanicalTour" role="region" aria-label="MicrobeQuest guided tour" aria-live="polite" hidden><div class="tour-head"><span>FIELD GUIDE / ORIENTATION</span><button type="button" id="tourClose" aria-label="Close tour">×</button></div><p class="tour-step-count" id="tourCount">STEP 1 OF 9</p><h2 id="tourTitle">Welcome to MicrobeQuest</h2><p id="tourCopy"></p><div class="tour-progress"><span id="tourProgress"></span></div><div class="tour-controls"><button type="button" id="tourBack">Back</button><button type="button" id="tourSkip">Skip tour</button><button type="button" id="tourNext">Next →</button></div></section>
+<script src="game.js" defer></script>
+<script src="evidence-room.js" defer></script>
+<script src="botanical-tour.js" defer></script>
+<script src="outbreak-intro.js" defer></script>
+<!-- Decorative cursor disabled for the botanical archive redesign. -->
 </body>
 </html>
