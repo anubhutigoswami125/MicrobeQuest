@@ -1,0 +1,43 @@
+/* First-visit comic briefing. Uses the existing tan paper, incident red, field green and warning-yellow palette. */
+.outbreak-intro[hidden],.tour-nudge[hidden]{display:none!important}
+.outbreak-intro{position:fixed;inset:0;z-index:30000;display:grid;place-items:center;padding:18px;background:rgba(22,25,19,.88);overflow-y:auto}
+.intro-paper{width:min(100%,1040px);background:#e4d0a7;color:#1e211b;border:2px solid #1e211b;box-shadow:9px 9px 0 #8e2c2e, inset 0 0 0 7px #f0e2c2; padding:clamp(18px,3vw,32px);position:relative}
+.intro-paper:before{content:"";position:absolute;inset:11px;border:1px solid #9d8a63;pointer-events:none}
+.intro-masthead{position:relative;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#243b2b;color:#f0e2c2;padding:8px 12px;border-bottom:4px solid #b39149;font:800 10px/1.4 "Courier New",monospace;letter-spacing:1.1px}
+.intro-comic-label{position:relative;margin:18px 0 5px;color:#8e2c2e;font:800 10px "Courier New",monospace;letter-spacing:1.6px}
+.intro-paper h2{position:relative;margin:0 0 17px;font:900 clamp(25px,4vw,42px)/.98 Impact,"Arial Narrow",sans-serif;letter-spacing:-.5px;text-transform:uppercase;color:#20271d;text-shadow:2px 2px 0 #f0e2c2}
+.intro-panels{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.intro-panel{min-width:0;background:#f0e2c2;border:2px solid #29271e;box-shadow:4px 4px 0 #b39149;padding:8px;transform:rotate(-.4deg)}
+.intro-panel:nth-child(2){transform:rotate(.5deg)}.intro-panel:nth-child(3){transform:rotate(-.2deg)}
+.intro-panel-art{height:clamp(125px,17vw,190px);position:relative;overflow:hidden;border:1px solid #343326;background:#a7a184}
+.art-alert{background:repeating-linear-gradient(135deg,#eee0bd 0 13px,#d7c394 13px 26px)}
+.art-stamp{position:absolute;top:13px;left:10px;padding:4px 7px;background:#8e2c2e;color:#fff0cb;border:2px solid #fff0cb;font:900 10px "Courier New",monospace;transform:rotate(-8deg)}
+.art-siren{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%) rotate(-7deg);font:900 clamp(70px,9vw,112px)/.8 Impact,sans-serif;color:#8e2c2e;text-shadow:4px 4px 0 #f4d34e,-2px -2px 0 #20231c}
+.art-caption{position:absolute;bottom:0;left:0;right:0;background:#20231c;color:#f4d34e;text-align:center;padding:6px;font:800 10px "Courier New",monospace;letter-spacing:1px}
+.art-zone{background:#d1bb8c}
+.zone-tape{position:absolute;top:17px;left:-20px;width:130%;text-align:center;transform:rotate(-13deg);background:repeating-linear-gradient(135deg,#171713 0 12px,#f4d34e 12px 24px);color:#f8e8b9;padding:7px;font:900 10px "Courier New",monospace}
+.zone-marker{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);font:900 84px Impact,sans-serif;color:#8e2c2e;text-shadow:3px 3px 0 #f0e2c2}
+.zone-lines{position:absolute;bottom:4px;right:6px;color:#8e2c2e;font:900 25px monospace;letter-spacing:-5px}
+.art-investigator{background:#b8aa83;background-image:linear-gradient(160deg,transparent 0 42%,#8e2c2e 42% 45%,transparent 45%),repeating-linear-gradient(0deg,transparent 0 18px,#8d805e 19px 20px)}
+.investigator-badge{position:absolute;right:8px;top:8px;border:2px solid #243b2b;background:#f0e2c2;padding:5px;color:#243b2b;font:900 9px/1.1 "Courier New",monospace;text-align:center;transform:rotate(5deg)}
+.investigator-silhouette{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);font:900 clamp(28px,4vw,44px)/.8 monospace;text-align:center;color:#243b2b;text-shadow:2px 2px 0 #f0e2c2}
+.file-tag{position:absolute;bottom:7px;left:7px;padding:5px;background:#8e2c2e;color:#fff0cb;font:900 9px "Courier New",monospace;transform:rotate(-4deg)}
+.intro-panel .speech{margin:10px 2px 8px;font:italic 14px/1.35 Georgia,serif;min-height:57px}
+.intro-panel small{display:block;border-top:1px dashed #9d8a63;padding-top:7px;color:#8e2c2e;font:800 9px "Courier New",monospace;letter-spacing:.7px}
+.intro-bottom{position:relative;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:20px;padding-top:13px;border-top:3px solid #243b2b}
+.intro-bottom>span{max-width:350px;color:#8e2c2e;font:900 9px/1.5 "Courier New",monospace;letter-spacing:.7px}
+.intro-bottom>div{display:flex;gap:9px;flex-wrap:wrap}
+.intro-bottom button{padding:11px 13px;border:2px solid #243b2b;background:#f0e2c2;color:#243b2b;font:900 10px "Courier New",monospace;letter-spacing:.4px;cursor:pointer}
+.intro-bottom #introContinue{background:#8e2c2e;color:#fff0cb;border-color:#1e211b;box-shadow:3px 3px 0 #1e211b}
+.intro-bottom button:focus-visible{outline:3px solid #f4d34e;outline-offset:3px}
+.tour-nudge{position:fixed;z-index:25000;top:76px;right:clamp(12px,4vw,50px);display:flex;align-items:flex-start;gap:8px;color:#f0e2c2;pointer-events:none}
+.tour-nudge-copy{background:#8e2c2e;border:2px solid #f4d34e;box-shadow:4px 4px 0 #1e211b;padding:10px 13px;max-width:235px;transform:rotate(1deg)}
+.tour-nudge-copy strong,.tour-nudge-copy span{display:block;font-family:"Courier New",monospace}
+.tour-nudge-copy strong{font-size:10px;letter-spacing:1px;color:#f4d34e}
+.tour-nudge-copy span{font-size:11px;line-height:1.4;font-weight:800;margin-top:4px}
+.tour-nudge-arrow{position:absolute;width:82px;height:60px;right:28px;top:57px;color:#8e2c2e;overflow:visible;filter:drop-shadow(1px 1px 0 #f4d34e);transform:rotate(14deg)}
+.tour-nudge #nudgeDismiss{pointer-events:auto;border:1px solid #f4d34e;background:#243b2b;color:#f0e2c2;font-size:18px;line-height:1;padding:3px 7px;cursor:pointer}
+#takeTour.tour-button-highlight{position:relative!important;z-index:25001!important;outline:3px solid #f4d34e!important;outline-offset:5px!important;box-shadow:0 0 0 9px #8e2c2e,0 0 0 13px #f4d34e!important;animation:tourPulse 1.2s ease-in-out infinite}
+@keyframes tourPulse{50%{box-shadow:0 0 0 13px #8e2c2e,0 0 0 17px #f4d34e!important}}
+@media(max-width:700px){.intro-panels{grid-template-columns:1fr;gap:10px}.intro-panel{display:grid;grid-template-columns:minmax(105px,38%) minmax(0,1fr);grid-template-rows:1fr auto;gap:8px;transform:none!important}.intro-panel-art{grid-row:1/3;height:125px}.intro-panel .speech{min-height:0;margin:4px;font-size:13px}.intro-panel small{align-self:end}.intro-paper{padding:15px;box-shadow:5px 5px 0 #8e2c2e,inset 0 0 0 5px #f0e2c2}.intro-paper:before{inset:7px}.intro-bottom{align-items:flex-start}.intro-bottom>div{width:100%}.intro-bottom button{flex:1}.tour-nudge{top:72px;right:8px}.tour-nudge-copy{max-width:205px}.tour-nudge-arrow{right:26px;top:58px;width:68px}.intro-masthead{font-size:8px}}
+@media(prefers-reduced-motion:reduce){#takeTour.tour-button-highlight{animation:none}}
