@@ -23,7 +23,7 @@ The visual direction is a maximalist outbreak archive: aged paper, field-dossier
 
 ## Repository and hosting notes
 
-This repository also contains a static GitHub Pages edition. GitHub Pages serves static files only; it does **not** run the Hatchable API routes or database. Registration, server-side activity tracking, and admin analytics therefore depend on the Hatchable deployment and should not be assumed to work on GitHub Pages.
+The GitHub Pages edition now mirrors the Hatchable site's front-end layout, styling, comic cutscene, guided tour, six-stage game, interactive Evidence Room, outbreak source links, credits, and legal pages. Because GitHub Pages serves static files only, it cannot run Hatchable's API routes, PostgreSQL database, or admin analytics. In the static edition, registration details and learning events are saved in the visitor's browser only; they are not sent to the project owner and do not appear in Hatchable analytics.
 
 For the latest full experience, use the [live Hatchable site](https://microbequest-the.hatchable.site/). The repository's HTML, CSS, and JavaScript provide the static project source and can be opened locally.
 
@@ -34,7 +34,7 @@ For the latest full experience, use the [live Hatchable site](https://microbeque
 3. Use the Live Server extension, or another local static server, to serve `index.html`.
 4. Open the local URL in your browser. A local server is recommended so relative links and browser storage behave consistently.
 
-No package installation or build step is required for the static edition.
+No package installation or build step is required for the static edition. Browser-local registration and progress require local storage to be enabled.
 
 ## GitHub Pages deployment
 
