@@ -1,0 +1,57 @@
+/* Main-page registration entry points */
+.topbar-actions{display:flex;align-items:center;gap:18px}
+.top-register{padding:10px 14px;min-height:38px;white-space:nowrap}
+.top-register span,.hero-register span{font-size:14px}
+.hero-register{min-height:46px;padding:14px 18px}
+@media(max-width:760px){.topbar-actions{gap:10px}.top-meta{font-size:8px;letter-spacing:.3px}.top-register{padding:8px 10px;min-height:34px;font-size:11px}}
+@media(max-width:540px){.topbar{padding:12px 16px;gap:10px;min-height:64px}.topbar-actions{gap:8px}.top-meta{display:none}.top-register{font-size:11px}.hero-actions{gap:10px}.hero-register{padding:12px 14px}}
+/* Registration flow */
+.registration-overlay{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:22px;background:rgba(38,27,25,.58);backdrop-filter:blur(5px);overflow-y:auto}
+.registration-panel{position:relative;width:min(100%,560px);max-height:min(92vh,900px);overflow-y:auto;background:var(--paper);border:1px solid var(--line);padding:clamp(24px,5vw,42px);box-shadow:0 24px 80px #2c171d35}
+.registration-panel h2{font:600 clamp(30px,5vw,42px)/1.1 var(--display);color:var(--text);margin:10px 0 12px;letter-spacing:-.7px}
+.registration-intro,.registration-footnote{font-size:12px;line-height:1.75;color:var(--muted)}
+.registration-panel form{display:grid;gap:8px;margin-top:20px}
+.registration-panel form>label{font:10px var(--mono);letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-top:7px}
+.registration-panel form>label span{font-family:var(--sans);text-transform:none;letter-spacing:0}
+.registration-panel input:not([type=checkbox]),.registration-panel select{width:100%;min-height:43px;border:1px solid var(--line);border-radius:2px;background:#fffdf8;color:var(--text);font:13px var(--sans);padding:10px 12px}
+.registration-panel input:focus,.registration-panel select:focus{outline:2px solid var(--red);outline-offset:1px}
+.registration-panel .consent-row{display:grid;grid-template-columns:18px 1fr;align-items:start;gap:10px;margin:12px 0 4px;font:12px/1.65 var(--sans);letter-spacing:0;text-transform:none;color:var(--text)}
+.consent-row input{margin:3px 0 0;accent-color:var(--red);width:16px;height:16px}
+.consent-row a{color:var(--red);text-underline-offset:3px}
+.registration-submit{width:100%;margin-top:6px}
+.registration-close{position:absolute;right:14px;top:12px;border:0;background:transparent;color:var(--muted);font-size:27px;cursor:pointer;width:36px;height:36px}
+.registration-status{min-height:18px;margin:2px 0;color:var(--red);font-size:12px;line-height:1.5}
+.registration-footnote{border-top:1px solid var(--line);padding-top:12px;margin:14px 0 0;font-size:10px}
+.registration-trap{position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden}
+@media(max-width:540px){.registration-overlay{padding:10px}.registration-panel{padding:25px 20px}.registration-panel h2{padding-right:20px}}
+/* Match the registration dialog to the retro desktop UI */
+.registration-panel{border-radius:0;background:#c6c6c6;border:3px solid;border-color:#fff #404040 #404040 #fff;box-shadow:4px 4px 0 #000}
+.registration-panel h2{font:22px/1.5 'Press Start 2P','Courier New',monospace;letter-spacing:0;color:#000080}
+.registration-intro,.registration-footnote{font:21px/1.3 'VT323','Courier New',monospace;color:#222}
+.registration-panel form>label{font:18px 'VT323','Courier New',monospace;letter-spacing:0;color:#222}
+.registration-panel input:not([type=checkbox]),.registration-panel select{border:2px solid;border-color:#555 #fff #fff #555;border-radius:0;background:#fff;color:#111;font:21px 'VT323','Courier New',monospace;min-height:42px}
+.registration-panel input:focus,.registration-panel select:focus{outline:2px dotted #000080;outline-offset:1px}
+.registration-panel .consent-row{font:20px/1.25 'VT323','Courier New',monospace;color:#111}
+.consent-row a{color:#000080}
+.registration-close{color:#111;font:27px 'VT323','Courier New',monospace}
+.registration-status{font:19px 'VT323','Courier New',monospace;color:#800080}
+.registration-footnote{border-color:#888}
+/* Pink-purple glass modal skin, matching the main experience */
+.registration-panel{background:linear-gradient(145deg,#fffaffef,#f8ecffef);border:1px solid #ffffff;border-radius:28px;box-shadow:0 30px 100px #5c26745c,inset 0 1px 0 #fff}
+.registration-panel h2{font:700 clamp(25px,4vw,34px)/1.2 'Space Grotesk',sans-serif;letter-spacing:-.04em;color:#643480}
+.registration-intro,.registration-footnote{font:13px/1.75 'DM Sans',sans-serif;color:#81678f}
+.registration-panel form>label{font:600 11px 'DM Mono',monospace;letter-spacing:.5px;color:#805794}
+.registration-panel input:not([type=checkbox]),.registration-panel select{border:1px solid #e4c8f4;border-radius:12px;background:#fffaff;color:#4c2b61;font:14px 'DM Sans',sans-serif;box-shadow:inset 0 1px 2px #a456c20a}
+.registration-panel input:focus,.registration-panel select:focus{outline:2px solid #c75bda;outline-offset:2px}
+.registration-panel .consent-row{font:12px/1.65 'DM Sans',sans-serif;color:#654579}
+.registration-panel .consent-row a,.registration-close{color:#a44cc5}
+.registration-footnote{border-color:#ead5f7}
+/* Glossy pink-purple registration modal to match the new theme */
+.registration-panel{background:linear-gradient(145deg,#fffaff,#f0ddff);border:1px solid #fff;border-radius:20px;box-shadow:inset 0 1px 0 #fff,0 0 0 4px #e6bfff,0 12px 0 #9e52c9,0 24px 60px #3e155c66}
+.registration-panel h2{font:13px/1.9 'Press Start 2P',monospace;color:#783a9f;letter-spacing:0}
+.registration-intro,.registration-footnote{font:500 15px/1.7 'Quicksand',sans-serif;color:#76518d}
+.registration-panel form>label{font:14px 'VT323',monospace;color:#8d62a2}
+.registration-panel input:not([type=checkbox]),.registration-panel select{border:1px solid #dfb9f5;border-radius:10px;background:#fffaff;color:#49215f;font:15px 'Quicksand',sans-serif;box-shadow:inset 0 2px 4px #8b43b310;min-height:44px}
+.registration-panel input:focus,.registration-panel select:focus{outline:2px solid #bd63e7}
+.registration-panel .consent-row{font:14px/1.6 'Quicksand',sans-serif;color:#6c4485}
+.consent-row a{color:#9c3bc7}.registration-close{color:#8e52ae;font:28px 'Quicksand',sans-serif}.registration-status{font:15px 'VT323',monospace;color:#a247cd}.registration-footnote{border-color:#e5c9f7}
